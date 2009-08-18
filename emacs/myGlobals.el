@@ -27,8 +27,21 @@
     (setq sentence-end "\\([£¥£¬¡££¡£¿¡¢£»£º¡ª¡¤¡®¡¯¡°¡±¡«£¢£§£à¡´¡µ¡²¡³¡¶¡·¡¼¡½¡¾¡¿£Û£Ý£¨£©£û£ý]\\|¡­¡­\\|[ . ?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*"))
   
   ; we only load mule-gbk for non-mac platform.
-  (if (not (string-match "darwin" (emacs-version)))
-      (xrn-load-gbk))
+  ; (if (not (string-match "darwin" (emacs-version)))
+  ;    (xrn-load-gbk))
+;;}}}
+
+;;{{{ global font setup
+  ;(set-default-font "Courier New:pixelsize=14")
+  (set-default-font "Consolas:pixelsize=18")
+  (set-fontset-font (frame-parameter nil 'font)
+  		  'han (font-spec :family "SimSun" :size 20))
+  (set-fontset-font (frame-parameter nil 'font)
+  		  'symbol (font-spec :family "SimSun" :size 20))
+  (set-fontset-font (frame-parameter nil 'font)
+  		  'cjk-misc (font-spec :family "SimSun" :size 20))
+  (set-fontset-font (frame-parameter nil 'font)
+  		  'bopomofo (font-spec :family "SimSun" :size 20))
 ;;}}}
 
 ;;{{{ Global Settings...
