@@ -1,4 +1,4 @@
-;;{{{ For Chinese...
+;;{{{ For gbk, forget GBK, embrace utf-8...
   (defun xrn-load-gbk ()
     "Load mult-gbk for win32/linux platform"
     (require 'mule-gbk)
@@ -26,22 +26,34 @@
   
     (setq sentence-end "\\([£¥£¬¡££¡£¿¡¢£»£º¡ª¡¤¡®¡¯¡°¡±¡«£¢£§£à¡´¡µ¡²¡³¡¶¡·¡¼¡½¡¾¡¿£Û£Ý£¨£©£û£ý]\\|¡­¡­\\|[ . ?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*"))
   
-  ; we only load mule-gbk for non-mac platform.
+  ; load mule-gbk by yourself
   ; (if (not (string-match "darwin" (emacs-version)))
   ;    (xrn-load-gbk))
 ;;}}}
 
 ;;{{{ global font setup
-  ;(set-default-font "Courier New:pixelsize=14")
-  (set-default-font "Consolas:pixelsize=18")
-  (set-fontset-font (frame-parameter nil 'font)
-  		  'han (font-spec :family "SimSun" :size 20))
-  (set-fontset-font (frame-parameter nil 'font)
-  		  'symbol (font-spec :family "SimSun" :size 20))
-  (set-fontset-font (frame-parameter nil 'font)
-  		  'cjk-misc (font-spec :family "SimSun" :size 20))
-  (set-fontset-font (frame-parameter nil 'font)
-  		  'bopomofo (font-spec :family "SimSun" :size 20))
+  (defun emacs23-font-setup ()
+    "setup font for version >= 23"
+    ; (set-default-font "Courier New:pixelsize=14")
+    (set-default-font "Consolas:pixelsize=16")
+    (set-fontset-font (frame-parameter nil 'font)
+                      'han (font-spec :family "SimSun" :size 16))
+    (set-fontset-font (frame-parameter nil 'font)
+                      'symbol (font-spec :family "SimSun" :size 16))
+    (set-fontset-font (frame-parameter nil 'font)
+                      'cjk-misc (font-spec :family "SimSun" :size 16))
+    (set-fontset-font (frame-parameter nil 'font)
+                      'bopomofo (font-spec :family "SimSun" :size 16)))
+
+  (defun emacs22-font-setup()
+    "setup font for version < 23"
+    (message "use default font"))
+
+  (if (string-equal
+       (number-to-string 23)
+       (substring (emacs-version) 10 12))
+      (emacs23-font-setup)
+    (emacs22-font-setup))
 ;;}}}
 
 ;;{{{ Global Settings...
