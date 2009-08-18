@@ -139,7 +139,7 @@
 
   ; easy buffer cycle, pc-selection-mode would define M-right as move right
   (global-set-key [C-M-right] 'next-buffer)
-  (global-set-key [C-M-left] 'prev-buffer)
+  (global-set-key [C-M-left] 'previous-buffer)
 
   ; move cursor in different windows
   (windmove-default-keybindings 'meta) ; +left/right/up/down
