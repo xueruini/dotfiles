@@ -35,7 +35,7 @@
   (defun emacs23-font-setup ()
     "setup font for version >= 23"
     ; (set-default-font "Courier New:pixelsize=14")
-    (set-default-font "Consolas:pixelsize=16")
+    (set-default-font "Consolas:pixelsize=18")
     (set-fontset-font (frame-parameter nil 'font)
                       'han (font-spec :family "SimSun" :size 16))
     (set-fontset-font (frame-parameter nil 'font)
@@ -73,7 +73,7 @@
   (setq line-number-mode t) 
   ;(column-number-mode t)
 
-  (tool-bar-mode 1)
+  (tool-bar-mode -1)
 
   (transient-mark-mode 1)
 

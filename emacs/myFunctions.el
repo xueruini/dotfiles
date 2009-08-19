@@ -1,16 +1,16 @@
 ;;{{{ define generic mode
   (define-generic-mode
-      'my-rc-mode         ;; mode的名字
-    '("#" ("/-" . "-/"))  ;; 注释符，可以是行注释符也可以是块注释符
-    '(                    ;; 关键字
+      'my-rc-mode         ;; mode name
+    '("#" ("/-" . "-/"))  ;; comment marks
+    '(                    ;; key words
       "idx" "val" "src" "SHELL")
-    '( ;; 还是关键字
+    '( ;; keywords
       ("\\[\\(.+\\)\\]" 1 'font-lock-string-face t)
       ("\\(\\<[0-9a-fA-F]+\\>\\)" 1 'font-lock-builtin-face)
       ("\\(\\w+\\)=\\(\\w+\\)" 1 'font-lock-keyword-face))
-    '(".*rc\\'")          ;; 本mode关联的文件名后缀
-    nil                   ;; function-list, 做一些初始化的工作
-    "this is a test mode" ;; 本mode的说明文档
+    '(".*rc\\'")          ;; file extension
+    nil                   ;; function-list, initialization
+    "this is a test mode" ;; documentation of this mode
     )
 ;;}}}
 
@@ -86,7 +86,6 @@
   ;; bind it
   (global-set-key [?\M-w] 'my-kill-ring-save)
 
-
   (defun my-kill-region (&optional line)
     "This function is a enhancement of `kill-region', which is normal used to
      kill a region to kill-ring.  This function will do exactly as `kill-region'
@@ -122,4 +121,23 @@
         (mark-sexp) (error ""))
     (kill-new (buffer-substring (mark) (point))))
   ;;(global-set-key [?\C-f2] 'my-select-this-word)
+;;}}}
+
+;;{{{ increase/decrease font size as in firefox
+  (defun increase-font-size ()
+    (interactive)
+    (set-face-attribute 'default
+                        nil
+                        :height
+                        (ceiling (* 1.10
+                                    (face-attribute 'default :height)))))
+  (defun decrease-font-size ()
+    (interactive)
+    (set-face-attribute 'default
+                        nil
+                        :height
+                        (floor (* 0.9
+                                  (face-attribute 'default :height)))))
+  (global-set-key (kbd "C-+") 'increase-font-size)
+  (global-set-key (kbd "C--") 'decrease-font-size)
 ;;}}}
