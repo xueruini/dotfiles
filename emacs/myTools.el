@@ -114,3 +114,17 @@
 ;;{{{ align 
   (require 'align)
 ;;}}}
+
+;;{{{ the powerful anything
+  (require 'anything)
+  (require 'anything-config)
+  (setq anything-sources
+        (list anything-c-source-buffers
+              anything-c-source-file-name-history
+              anything-c-source-info-pages
+              anything-c-source-man-pages
+              anything-c-source-file-cache
+              anything-c-source-emacs-commands
+              anything-c-source-locate))
+  (global-set-key [(f12)] 'anything)
+;;}}}
