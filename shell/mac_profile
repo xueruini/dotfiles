@@ -27,3 +27,8 @@ alias rm="rm -i"
 
 # for luatex
 # export OSFONTDIR="{$HOME/Library/Fonts,/Library/Fonts}"
+
+# use vim to read man page
+function man() {
+  /usr/bin/man $* | col -b | /usr/bin/vim -R -c 'set ft=man nomod nolist' -
+}
