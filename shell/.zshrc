@@ -103,8 +103,9 @@ zstyle ':completion:*' expand 'yes'
 zstyle ':completion:*' squeeze-shlashes 'yes'
 zstyle ':completion::complete:*' '\\'
 
-zstyle ':completion:*:*:*:default' menu yes select
-zstyle ':completion:*:*:default' force-list always
+# I do not like the additional "Enter"
+# zstyle ':completion:*:*:*:default' menu yes select
+# zstyle ':completion:*:*:default' force-list always
 
 # enable colors
 [ -f /etc/DIR_COLORS ] && eval $(dircolors -b /etc/DIR_COLORS)
