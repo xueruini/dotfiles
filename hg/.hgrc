@@ -1,0 +1,21 @@
+# example config (see "hg help config" for more info)
+
+[ui]
+username = Ruini Xue <xueruini@gmail.com>
+ssh = ssh -C
+
+[alias]
+glog = log -G
+
+[extensions]
+# uncomment these lines to enable some popular extensions
+# (see "hg help extensions" for more info)
+pager =
+progress =
+color =
+record =
+rebase =
+mq =
+
+[pager]
+pager = LESS='FRX' less
