@@ -1,21 +1,35 @@
-(setq-default line-spacing 5)
+(when window-system
+  (tooltip-mode -1)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1))
 
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
+(setq-default line-spacing 5)
 
 (show-paren-mode t)
 (setq show-paren-style 'expression)
 
-(defun xrn-match-paren (arg)
-  "Go to the matching paren if on a paren; otherwise insert %."
+;; http://www.emacswiki.org/emacs/NavigatingParentheses
+(defun goto-match-paren (arg)
+  "Go to the matching parenthesis if on parenthesis, otherwise insert %.
+vi style of % jumping to matching brace."
   (interactive "p")
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (self-insert-command (or arg 1)))))
-(global-set-key "%" 'xrn-match-paren)
+(global-set-key "%" 'goto-match-paren)
 
+;; fill
 (setq-default auto-fill-function 'do-auto-fill)
 (setq-default fill-column 80)
+;; https://github.com/xahlee/xah_emacs_init/blob/master/xah_emacs_font.el
+(defun xah-toggle-margin-right ()
+  "Toggle the right margin between `fill-column' or window width.
+This command is convenient when reading novel, documentation."
+  (interactive)
+  (if (eq (cdr (window-margins)) nil)
+      (set-window-margins nil 0 (- (window-body-width) fill-column))
+    (set-window-margins nil 0 0)))
 
 ;; line & column number
 (global-linum-mode t)
@@ -54,22 +68,8 @@
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family (car (cdr fonts))))))
 
-(defun xrn-increase-font-size ()
-  (interactive)
-  (set-face-attribute 'default
-                      nil
-                      :height
-                      (ceiling (* 1.10
-                                  (face-attribute 'default :height)))))
-(defun xrn-decrease-font-size ()
-  (interactive)
-  (set-face-attribute 'default
-                      nil
-                      :height
-                      (floor (* 0.9
-                                (face-attribute 'default :height)))))
-(global-set-key (kbd "C-+") 'xrn-increase-font-size)
-(global-set-key (kbd "C--") 'xrn-decrease-font-size)
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
 
 ;; package system >= emacs-version-24
 (require 'package)
@@ -82,6 +82,11 @@
 (require 'exec-path-from-shell)
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+
+;; (package-install 'undo-tree)
+(global-undo-tree-mode)
+(setq undo-tree-visualizer-timestamps t)
+(setq undo-tree-visualizer-diff t)
 
 ;; auctex & reftex
 (require 'tex-site)
@@ -136,11 +141,15 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; color-theme
-(require 'color-theme)
-(color-theme-initialize)
-; bullshit, load diff-mode (or any necessary on error) before issuing color-theme-select
-; (require 'diff-mode)
-(color-theme-snowish)
+(when window-system
+  (require 'color-theme)
+  (color-theme-initialize)
+  ; bullshit, load diff-mode (or any necessary on error) before issuing color-theme-select
+  ; (require 'diff-mode)
+  ; (color-theme-snowish)
+  ; (package-install 'color-theme-solarized)
+  ; (color-theme-solarized 'dark)
+  (color-theme-solarized 'light))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -148,9 +157,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(php-mode-coding-style (quote wordpress)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
