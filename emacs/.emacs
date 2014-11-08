@@ -4,7 +4,7 @@
   (menu-bar-mode -1)
   (scroll-bar-mode -1))
 
-(setq-default line-spacing 5)
+(setq-default line-spacing 4)
 
 (show-paren-mode t)
 (setq show-paren-style 'expression)
@@ -33,7 +33,7 @@ This command is convenient when reading novel, documentation."
 
 ;; line & column number
 (global-linum-mode t)
-(global-hl-line-mode t)
+; (global-hl-line-mode t)
 (line-number-mode t)
 (column-number-mode t)
 
@@ -89,7 +89,6 @@ This command is convenient when reading novel, documentation."
 (setq undo-tree-visualizer-diff t)
 
 ;; auctex & reftex
-(require 'tex-site)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
 (add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
 (setq reftex-plug-into-AUCTeX t)
@@ -148,12 +147,14 @@ This command is convenient when reading novel, documentation."
   ; (require 'diff-mode)
   ; (color-theme-snowish)
   ; (package-install 'color-theme-solarized)
-  ; (color-theme-solarized 'dark)
-  (color-theme-solarized 'light))
+  (load-theme 'solarized-dark t))
+  ; (load-theme 'solarized-light t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(php-mode-coding-style (quote wordpress)))
+ '(php-mode-coding-style (quote wordpress))
+ '(reb-re-syntax (quote string))
+ '(safe-local-variable-values (quote ((TeX-modes . latex) (TeX-engine . pdflatex)))))
