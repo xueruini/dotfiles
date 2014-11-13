@@ -5,8 +5,10 @@
 	ui = auto
 [color "diff"]
 	whitespace = red reverse
-[core]
-	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[push]
+        default = simple
+[pull]
+        rebase = true
 [alias]
 	st = status
 	ci = commit
