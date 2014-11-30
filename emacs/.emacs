@@ -1,8 +1,21 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(php-mode-coding-style (quote wordpress))
+ '(reb-re-syntax (quote string))
+ '(safe-local-variable-values (quote ((TeX-modes . latex) (TeX-engine . pdflatex))))
+ '(speedbar-show-unknown-files t)
+ '(speedbar-use-images nil))
+
 (when window-system
   (tooltip-mode -1)
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1))
+
+(setq make-backup-files nil)
 
 (setq-default line-spacing 4)
 
@@ -53,7 +66,8 @@ This command is convenient when reading novel, documentation."
 (when (display-graphic-p)
   (setq fonts
         (cond ((eq system-type 'darwin)
-               '("Monaco" "STHeiti"))
+               ; '("Manaco" "STHeiti"))
+               '("Droid Sans Mono" "STHeiti"))
               ((eq system-type 'gnu/linux)
                '("Menlo" "WenQuanYi Zen Hei"))
               ((eq system-type 'windows-nt)
@@ -63,7 +77,7 @@ This command is convenient when reading novel, documentation."
 		  ("Microsoft Yahei" . 1.2)
 		  ("WenQuanYi Zen Hei" . 1.2)))
   (set-face-attribute 'default nil :font
-                      (format "%s:pixelsize=%d" (car fonts) 13))
+                      (format "%s:pixelsize=%d" (car fonts) 14))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family (car (cdr fonts))))))
@@ -150,11 +164,4 @@ This command is convenient when reading novel, documentation."
   (load-theme 'solarized-dark t))
   ; (load-theme 'solarized-light t))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(php-mode-coding-style (quote wordpress))
- '(reb-re-syntax (quote string))
- '(safe-local-variable-values (quote ((TeX-modes . latex) (TeX-engine . pdflatex)))))
+;; sr-speedbar
