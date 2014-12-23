@@ -23,3 +23,7 @@
 
 	# Show files ignored by git:
 	ign = ls-files -o -i --exclude-standard
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
