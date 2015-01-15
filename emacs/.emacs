@@ -92,6 +92,7 @@ This command is convenient when reading novel, documentation."
 (package-initialize)
 
 ;; PATH fix for macos
+;; (package-install 'exec-path-from-shell)
 (require 'exec-path-from-shell)
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
@@ -102,6 +103,7 @@ This command is convenient when reading novel, documentation."
 (setq undo-tree-visualizer-diff t)
 
 ;; auctex & reftex
+;; (package-install 'auctex)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
 (add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
 (setq reftex-plug-into-AUCTeX t)
@@ -110,6 +112,7 @@ This command is convenient when reading novel, documentation."
 (setq-default TeX-master nil)
 
 ;; helm
+;; (package-install 'helm)
 (require 'helm-config)
 (require 'helm-grep)
 
@@ -146,6 +149,7 @@ This command is convenient when reading novel, documentation."
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;; markdown
+;; (package-install 'markdown-mode)
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
@@ -153,6 +157,7 @@ This command is convenient when reading novel, documentation."
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; color-theme
+;; (package-install 'color-theme)
 (when window-system
   (require 'color-theme)
   (color-theme-initialize)
@@ -164,9 +169,15 @@ This command is convenient when reading novel, documentation."
   ; (load-theme 'solarized-light t))
 
 ;; sr-speedbar
+;; (package-install 'sr-speedbar)
 
 ;; slime
+;; (package-install 'slime)
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 
+;; clojure
+;; (package-install 'cider)
+
 ;; php
+;; (package-install 'php-mode)
 (add-hook 'php-mode-hook 'php-enable-wordpress-coding-style)
