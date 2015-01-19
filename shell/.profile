@@ -11,6 +11,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+# z
+. `brew --prefix`/etc/profile.d/z.sh
+
 ## use vim to read man page
 #function man() {
 #  /usr/bin/man $* | col -b | vim -R -c 'set ft=man nomod nolist' -
