@@ -181,3 +181,8 @@ This command is convenient when reading novel, documentation."
 ;; php
 ;; (package-install 'php-mode)
 (add-hook 'php-mode-hook 'php-enable-wordpress-coding-style)
+
+;; javascript
+;; (package-install 'js2-mode)
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(setq js2-highlight-level 3)

@@ -12,6 +12,7 @@
 [alias]
 	st = status
 	sts = status -sb
+        stnu = status --untracked-files=no
 	ci = commit
 	br = branch
 	co = checkout
