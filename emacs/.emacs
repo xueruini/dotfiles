@@ -186,3 +186,6 @@ This command is convenient when reading novel, documentation."
 ;; (package-install 'js2-mode)
 (add-hook 'js-mode-hook 'js2-minor-mode)
 (setq js2-highlight-level 3)
+; (setq js2-basic-offset 2)
+; (setq js-indent-level 2)
+(setq js-switch-indent-offset 4)
