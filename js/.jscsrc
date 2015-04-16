@@ -1,4 +1,5 @@
 {
     "preset": "crockford",
-    "fileExtensions": [ ".js", ".jsx" ]
+    "fileExtensions": [ ".js", ".jsx" ],
+    "disallowMultipleVarDecl": "strict"
 }

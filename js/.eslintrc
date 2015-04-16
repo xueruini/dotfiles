@@ -3,5 +3,6 @@
         "browser": true,
         "node": true
     },
-    "format": ""
+    "format": "",
+    "quotes": [1, "single"]
 }
