@@ -12,7 +12,7 @@
 (when window-system
   (tooltip-mode -1)
   (tool-bar-mode -1)
-  (menu-bar-mode -1)
+  ; (menu-bar-mode -1)
   (scroll-bar-mode -1))
 
 (setq make-backup-files nil)
@@ -87,7 +87,7 @@ This command is convenient when reading novel, documentation."
 
 ;; package system >= emacs-version-24
 (require 'package)
-(setq package-archives '(; ("gnu" . "http://elpa.gnu.org/packages/")
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
@@ -189,3 +189,7 @@ This command is convenient when reading novel, documentation."
 (setq js2-basic-offset 4)
 (setq js-indent-level 4)
 (setq js-switch-indent-offset 4)
+
+;; flycheck
+;; (package-install 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
