@@ -30,5 +30,6 @@
 	required = true
 	clean = git media clean %f
 	smudge = git media smudge %f
+# NOTE: this will break 'git add origin' (e.g., for github and bitbucket), so disable it before adding origin.
 [remote "origin"]
 	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
