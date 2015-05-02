@@ -1,110 +1,68 @@
-# Prompt
-autoload -U promptinit
-promptinit
-prompt -s adam2
+# for brew z
+. `brew --prefix`/etc/profile.d/z.sh
+# for brew zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 
-# History
+## ZSH-specific shell environment flags only relvant to interactive shells
+# Variable behaviors
+setopt NO_ALL_EXPORT			# Don't export all variables to environment
+
+# Directory changing
+setopt AUTO_CD						# cd to a directory if it's given without a command
+setopt CDABLE_VARS				# Try to cd to variable value from ~ if no leading slash
+setopt NO_AUTO_PUSHD      # Prevent all directories from being automatically pushed onto the stack
+setopt PUSHD_IGNORE_DUPS	# Directory only appears once on the stack
+#setopt PUSHD_SILENT				# No non-error messages from pushd
+setopt PUSHD_TO_HOME			# pushd with no arguments goes to ~
+
+# Completion
+#setopt AUTO_LIST          # (Default) Automatically list ambiguous completion choices
+#setopt AUTO_MENU          # (Default) Automatically use menu completion after second completion request
+#setopt AUTO_REMOVE_SLASH	 # (Default) Trailing / in completion is removed
+#setopt MENU_COMPLETE			 # Cycle through completions by completing in place
+setopt NO_LIST_BEEP        # Prevent beeping on ambiguous completion
+
+# Globbing
+setopt EXTENDED_GLOB			# Allow globbing qualifiers and other extensions
+# cd /a/b/c --> cd /a???/b???/c???
+setopt COMPLETE_IN_WORD
+setopt GLOB_DOTS					# Patterns may match without leading periods
+setopt NOMATCH						# Throw error if a glob fails to match
+
+# History behavior
 # number of lines kept in history
 export HISTSIZE=10000
 # number of lines saved in the history after logout
 export SAVEHIST=10000
-# location of history
-export HISTFILE=~/.zhistory
 # append command to history file once executed
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
-setopt HIST_REDUCE_BLANKS
+setopt NO_HIST_BEEP       # Don't beep on failed history lookups
+setopt HIST_IGNORE_SPACE	# Do not store lines starting with space
+setopt HIST_REDUCE_BLANKS	# Trim multiple insignificant blanks
+setopt NO_HIST_VERIFY			# Don't show expanded line for editing
+setopt BANG_HIST					# ! style history is allowed
+setopt INTERACTIVE_COMMENTS  # Allow comments to be added; Helpful for history lookups
+
+# Background jobs
+setopt AUTO_CONTINUE      # Ensure a stopped job is continued when disowned
+setopt NO_BG_NICE		   		# Don't lower priority of background jobs
+setopt CHECK_JOBS         # Report status of background jobs when exitting a shell
+setopt LONG_LIST_JOBS			# More verbose listing of jobs
+setopt NOTIFY							# Notify of background job changes as soon as they happen
+
+# Miscellaneous
+setopt NO_BEEP			  		# Do not beep on line editor errors
+setopt NO_CORRECT				  # Don't suggest corrections for misspelled commands
+bindkey -e # Emacs key bindings
 
 # Disable core dumps
 limit coredumpsize 0
-
-# show jobs upon exit
-setopt CHECK_JOBS
-
-# Emacs key bindings
-bindkey -e
-
-bindkey '^i' expand-or-complete-prefix
-
-# regard them as part of a word
-WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
-
-# Auto Completion
-autoload -U compinit
-compinit
-
-setopt AUTO_LIST
-setopt AUTO_MENU
-setopt MENU_COMPLETE
-# type dirname to enter
-setopt AUTO_CD
-# cd - [TAB]
-setopt AUTO_PUSHD
-setopt PUSHD_IGNORE_DUPS
-setopt CDABLE_VARS
-# cd /a/b/c --> cd /a???/b???/c???
-setopt COMPLETE_IN_WORD
-setopt EXTENDED_GLOB
-
-# Completion caching
-zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path ~/.zcache
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
-
-# Completion Options
-zstyle ':completion:*:match:*' original only
-zstyle ':completion::prefix-1:*' completer _complete
-zstyle ':completion:predict:*' completer _complete
-zstyle ':completion:incremental:*' completer _complete _correct
-zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
-
-# Path Expansion
-zstyle ':completion:*' expand 'yes'
-zstyle ':completion:*' squeeze-shlashes 'yes'
-zstyle ':completion::complete:*' '\\'
-
-# I do not like the additional "Enter"
-# zstyle ':completion:*:*:*:default' menu yes select
-zstyle ':completion:*:*:default' force-list always
-
-# enable colors
-[ -f /etc/DIR_COLORS ] && eval $(dircolors -b /etc/DIR_COLORS)
-export ZLSCOLORS="${LS_COLORS}"
-zmodload zsh/complist
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-
-zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*' force-list always
-zstyle ':completion:*:*:*:*:processes' force-list always
-zstyle ':completion:*:processes' command 'ps -au$USER'
-
-# Group matches and Describe
-zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*:options' description 'yes'
-zstyle ':completion:*:options' auto-description '%d'
-zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
-zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
-zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
-zstyle ':completion:*:corrections' format $'\e[01;32m -- %d (errors: %e) --\e[0m'
-
-# cd ~
-zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
 
 # alias
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias ll='ls -l'
-alias grep='grep --color=auto'
-
-# z
-. `brew --prefix`/etc/profile.d/z.sh
 
 # misc
 setopt CORRECT_ALL
@@ -117,3 +75,42 @@ rationalise-dot() {
 }
 zle -N rationalise-dot
 bindkey . rationalise-dot
+
+# add brew zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+# antigen
+source "$HOME/.antigen/antigen.zsh"
+
+antigen use oh-my-zsh
+
+antigen bundle <<EOBUDLES
+common-aliases
+bundler
+command-not-found
+history
+history-substring-search
+osx
+vagrant
+brew
+git
+git-extras
+pip
+rsync
+python
+virtualenvwrapper
+node
+npm
+tmux
+vundle
+sprunge
+fabric
+zsh-users/zsh-completions src
+zsh-users/zsh-syntax-highlighting
+rupa/z
+EOBUDLES
+
+#antigen theme jreese
+antigen theme pygmalion
+
+antigen-apply
