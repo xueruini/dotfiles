@@ -1,7 +1,4 @@
 # Prompt
-##RPROMPT='%/'
-#PROMPT='%{[36m%}%n%{[35m%}@%{[34m%}%M %{[33m%}%D %T  %{[32m%}%/ 
-#%{[31m%}>>%{[m%}'
 autoload -U promptinit
 promptinit
 prompt -s adam2
@@ -27,43 +24,6 @@ setopt CHECK_JOBS
 # Emacs key bindings
 bindkey -e
 
-## special keys
-#bindkey "\e[3~" delete-char
-#bindkey "\e[1~" beginning-of-line
-#bindkey "\e[4~" end-of-line
-#bindkey "\e[5~" beginning-of-history
-#bindkey "\e[6~" end-of-history
-#bindkey "\e[3~" delete-char
-#bindkey "\e[2~" quoted-insert
-#bindkey "\e[5C" forward-word
-#bindkey "\eOc" emacs-forward-word
-#bindkey "\e[5D" backward-word
-#bindkey "\eOd" emacs-backward-word
-#bindkey "\e\e[C" forward-word
-#bindkey "\e\e[D" backward-word
-## for rxvt
-#bindkey "\e[8~" end-of-line
-#bindkey "\e[7~" beginning-of-line
-## for non RH/Debian xterm, can't hurt for RH/Debian xterm
-#bindkey "\eOH" beginning-of-line
-#bindkey "\eOF" end-of-line
-## for freebsd console
-#bindkey "\e[H" beginning-of-line
-#bindkey "\e[F" end-of-line
-
-## again special
-#typeset -g -A key
-#bindkey '^?' backward-delete-char
-#bindkey '^[[1~' beginning-of-line
-#bindkey '^[[5~' up-line-or-history
-#bindkey '^[[3~' delete-char
-#bindkey '^[[4~' end-of-line
-#bindkey '^[[6~' down-line-or-history
-#bindkey '^[[A' up-line-or-search
-#bindkey '^[[D' backward-char
-#bindkey '^[[B' down-line-or-search
-#bindkey '^[[C' forward-char 
-## completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
 
 # regard them as part of a word
@@ -140,16 +100,11 @@ zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directori
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias ls='ls -F --color=auto'
 alias ll='ls -l'
 alias grep='grep --color=auto'
-alias ss='svn status'
-alias sd='svn diff | less -R'
-alias sdh='svn diff -r HEAD | less -R'
-alias en='emacs -nw'
 
-# cd ~xxx
-hash -d cwt="$HOME/lbs.svn/branches/cwt"
+# z
+. `brew --prefix`/etc/profile.d/z.sh
 
 # misc
 setopt CORRECT_ALL
