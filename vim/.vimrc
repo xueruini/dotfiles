@@ -1,3 +1,4 @@
+syntax on
 set hlsearch
 set ignorecase
 set autoindent
