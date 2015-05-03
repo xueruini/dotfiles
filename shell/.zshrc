@@ -85,6 +85,7 @@ antigen bundle pip
 antigen bundle rsync
 antigen bundle python
 antigen bundle virtualenvwrapper
+antigen bundle lein
 antigen bundle node
 antigen bundle npm
 antigen bundle tmux
