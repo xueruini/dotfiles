@@ -11,14 +11,14 @@ setopt PUSHD_IGNORE_DUPS	# Directory only appears once on the stack
 setopt PUSHD_TO_HOME		# pushd with no arguments goes to ~
 
 # Completion
-#setopt AUTO_LIST          # (Default) Automatically list ambiguous completion choices
-#setopt AUTO_MENU          # (Default) Automatically use menu completion after second completion request
+#setopt AUTO_LIST         # (Default) Automatically list ambiguous completion choices
+#setopt AUTO_MENU         # (Default) Automatically use menu completion after second completion request
 #setopt AUTO_REMOVE_SLASH # (Default) Trailing / in completion is removed
 #setopt MENU_COMPLETE	  # Cycle through completions by completing in place
 setopt NO_LIST_BEEP       # Prevent beeping on ambiguous completion
 
 # Globbing
-setopt EXTENDED_GLOB	  # Allow globbing qualifiers and other extensions
+setopt EXTENDED_GLOB	# Allow globbing qualifiers and other extensions
 # cd /a/b/c --> cd /a???/b???/c???
 setopt COMPLETE_IN_WORD
 setopt GLOB_DOTS	# Patterns may match without leading periods
@@ -51,11 +51,6 @@ bindkey -e 		# Emacs key bindings
 # Disable core dumps
 limit coredumpsize 0
 
-# alias
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-
 # misc
 setopt CORRECT_ALL
 rationalise-dot() {
@@ -74,6 +69,7 @@ source "$HOME/.antigen/antigen.zsh"
 antigen use oh-my-zsh
 
 antigen bundle common-aliases
+antigen bundle colored-man
 antigen bundle bundler
 antigen bundle command-not-found
 antigen bundle history
@@ -81,8 +77,10 @@ antigen bundle history-substring-search
 antigen bundle osx
 antigen bundle vagrant
 antigen bundle brew
+antigen bundle brew-cask
 antigen bundle git
 antigen bundle git-extras
+antigen bundle emacs
 antigen bundle pip
 antigen bundle rsync
 antigen bundle python
@@ -93,10 +91,12 @@ antigen bundle tmux
 antigen bundle vundle
 antigen bundle sprunge
 antigen bundle fabric
+# antigen bundle fasd
+antigen bundle z
+antigen bundle zsh_reload
 
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle rupa/z
 
 #antigen theme jreese
 antigen theme pygmalion
