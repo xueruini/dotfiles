@@ -46,13 +46,12 @@ setopt NOTIFY		# Notify of background job changes as soon as they happen
 # Miscellaneous
 setopt NO_BEEP		# Do not beep on line editor errors
 setopt NO_CORRECT	# Don't suggest corrections for misspelled commands
-bindkey -e 		# Emacs key bindings
+bindkey -e          # Emacs key bindings
 
 # Disable core dumps
 limit coredumpsize 0
 
-# misc
-setopt CORRECT_ALL
+# Clever dot expansion
 rationalise-dot() {
   if [[ $LBUFFER = *.. ]]; then
     LBUFFER+=/..
