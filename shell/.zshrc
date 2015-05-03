@@ -70,6 +70,7 @@ antigen use oh-my-zsh
 
 antigen bundle common-aliases
 antigen bundle colored-man
+antigen bundle colorize
 antigen bundle bundler
 antigen bundle command-not-found
 antigen bundle history
