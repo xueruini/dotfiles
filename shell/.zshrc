@@ -80,7 +80,6 @@ antigen bundle brew
 antigen bundle brew-cask
 antigen bundle git
 antigen bundle git-extras
-antigen bundle emacs
 antigen bundle pip
 antigen bundle rsync
 antigen bundle python
