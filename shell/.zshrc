@@ -77,6 +77,7 @@ antigen bundle history
 antigen bundle history-substring-search
 antigen bundle osx
 antigen bundle vagrant
+antigen bundle docker
 antigen bundle brew
 antigen bundle brew-cask
 antigen bundle git
