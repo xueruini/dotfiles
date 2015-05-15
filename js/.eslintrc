@@ -3,6 +3,9 @@
         "browser": true,
         "node": true
     },
-    "format": "",
-    "quotes": [1, "single"]
+
+    "rules": {
+        "format": "",
+        "quotes": [1, "single"]
+    }
 }
