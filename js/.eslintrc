@@ -1,11 +1,21 @@
 {
     "env": {
         "browser": true,
+        "jquery": true,
         "node": true
     },
-
-    "rules": {
-        "format": "",
-        "quotes": [1, "single"]
+     "rules": {
+        "quotes": [1, "single"],
+        "strict": 1,
+        "block-scoped-var": 1,
+        "no-spaced-func": [1, true],
+        "space-after-keywords": [1, "always"],
+        "brace-style": [1, "1tbs"],
+        "curly": 1,
+        "default-case": 1,
+        "dot-notation": [1, {"allowKeywords": false}],
+        "eqeqeq": 1,
+        "wrap-iife": [2, "inside"],
+        "no-underscore-dangle": 0
     }
 }
