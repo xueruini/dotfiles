@@ -1,3 +1,5 @@
+source /usr/local/share/zsh/site-functions/_aws
+
 ## ZSH-specific shell environment flags only relvant to interactive shells
 # Variable behaviors
 setopt NO_ALL_EXPORT		# Don't export all variables to environment
@@ -14,7 +16,7 @@ setopt PUSHD_TO_HOME		# pushd with no arguments goes to ~
 #setopt AUTO_LIST         # (Default) Automatically list ambiguous completion choices
 #setopt AUTO_MENU         # (Default) Automatically use menu completion after second completion request
 #setopt AUTO_REMOVE_SLASH # (Default) Trailing / in completion is removed
-#setopt MENU_COMPLETE	  # Cycle through completions by completing in place
+setopt MENU_COMPLETE	  # Cycle through completions by completing in place
 setopt NO_LIST_BEEP       # Prevent beeping on ambiguous completion
 
 # Globbing
