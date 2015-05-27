@@ -1,3 +1,5 @@
 debug 3
 set ftp:use-feat no
 set ftp:ssl-allow no
+# many FTP sites in China forget to use utf8
+set ftp:charset gbk
