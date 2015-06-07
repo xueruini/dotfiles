@@ -9,7 +9,7 @@
  '(speedbar-show-unknown-files t)
  '(speedbar-use-images nil))
 
-(when window-system
+(when (display-graphic-p)
   (tooltip-mode -1)
   (tool-bar-mode -1)
   ; (menu-bar-mode -1)
@@ -46,6 +46,8 @@ This command is convenient when reading novel, documentation."
 
 ;; line & column number
 (global-linum-mode t)
+(when (not (display-graphic-p))
+  (setq linum-format "%d "))
 ; (global-hl-line-mode t)
 (line-number-mode t)
 (column-number-mode t)
