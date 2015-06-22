@@ -8,7 +8,7 @@
         "quotes": [2, "single"],
         "strict": 2,
         "block-scoped-var": 1,
-        "no-spaced-func": [1, true],
+        "no-spaced-func": 1,
         "space-after-keywords": [1, "always"],
         "brace-style": [2, "1tbs"],
         "curly": 2,
