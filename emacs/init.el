@@ -79,7 +79,7 @@ This command is convenient when reading novel, documentation."
 		  ("Microsoft Yahei" . 1.2)
 		  ("WenQuanYi Zen Hei" . 1.2)))
   (set-face-attribute 'default nil :font
-                      (format "%s:pixelsize=%d" (car fonts) 14))
+                      (format "%s:pixelsize=%d" (car fonts) 13))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family (car (cdr fonts))))))
@@ -163,12 +163,13 @@ This command is convenient when reading novel, documentation."
 (when window-system
   (require 'color-theme)
   (color-theme-initialize)
-  ; bullshit, load diff-mode (or any necessary on error) before issuing color-theme-select
+  ; BUG: load diff-mode (or any necessary on error) before issuing color-theme-select
   ; (require 'diff-mode)
   ; (color-theme-snowish)
   ; (package-install 'color-theme-solarized)
-  (load-theme 'solarized-dark t))
-  ; (load-theme 'solarized-light t))
+  (load-theme 'solarized-dark t)
+  ; (load-theme 'solarized-light t)
+  )
 
 ;; sr-speedbar
 ;; (package-install 'sr-speedbar)
