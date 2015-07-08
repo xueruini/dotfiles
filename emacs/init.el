@@ -196,3 +196,4 @@ This command is convenient when reading novel, documentation."
 ;; flycheck
 ;; (package-install 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(setq flycheck-phpcs-standard "WordPress")

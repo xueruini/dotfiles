@@ -5,6 +5,7 @@ alias rm="rm -i"
 
 # brew
 export PATH=/usr/local/bin:$PATH
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 
 # bash-completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then

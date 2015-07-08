@@ -1,3 +1,4 @@
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 source /usr/local/share/zsh/site-functions/_aws
 
 ## ZSH-specific shell environment flags only relvant to interactive shells
