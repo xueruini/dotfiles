@@ -3,7 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flycheck-phpcs-standard "WordPress")
  '(php-mode-coding-style (quote wordpress))
+ '(phpcbf-standard "WordPress")
  '(reb-re-syntax (quote string))
  '(safe-local-variable-values (quote ((TeX-modes . latex) (TeX-engine . pdflatex))))
  '(speedbar-show-unknown-files t)
@@ -196,10 +198,7 @@ This command is convenient when reading novel, documentation."
 ;; flycheck
 ;; (package-install 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-(setq flycheck-phpcs-standard "WordPress")
 
 ;; phpcbf (install phpcs first)
-(custom-set-variables
-  '(phpcbf-standard "WordPress"))
 ;; Auto format on save.
 ; (add-hook 'php-mode-hook 'phpcbf-enable-on-save)
