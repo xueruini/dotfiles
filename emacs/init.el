@@ -197,3 +197,8 @@ This command is convenient when reading novel, documentation."
 ;; (package-install 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (setq flycheck-phpcs-standard "WordPress")
+
+;; phpcbf (install phpcs first)
+(setq phpcbf-standard "WordPress")
+;; Auto format on save.
+; (add-hook 'php-mode-hook 'phpcbf-enable-on-save)
