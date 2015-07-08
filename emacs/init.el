@@ -199,6 +199,7 @@ This command is convenient when reading novel, documentation."
 (setq flycheck-phpcs-standard "WordPress")
 
 ;; phpcbf (install phpcs first)
-(setq phpcbf-standard "WordPress")
+(custom-set-variables
+  '(phpcbf-standard "WordPress"))
 ;; Auto format on save.
 ; (add-hook 'php-mode-hook 'phpcbf-enable-on-save)
