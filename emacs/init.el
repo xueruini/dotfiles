@@ -202,3 +202,5 @@ This command is convenient when reading novel, documentation."
 ;; phpcbf (install phpcs first)
 ;; Auto format on save.
 ; (add-hook 'php-mode-hook 'phpcbf-enable-on-save)
+
+(load "~/.emacs.d/brithon.el")

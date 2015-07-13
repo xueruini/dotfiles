@@ -1,35 +1,36 @@
 [user]
-	name = Ruini Xue
-	email = xueruini@gmail.com
+    name = Ruini Xue
+    email = xueruini@gmail.com
 [color]
-	ui = auto
+    ui = auto
 [color "diff"]
-	whitespace = red reverse
+    whitespace = red reverse
 [push]
-        default = simple
+    default = simple
 [pull]
-        rebase = true
+    rebase = true
 [alias]
-	st = status
-	sts = status -sb
-        stnu = status --untracked-files=no
-	ci = commit
-	br = branch
-	co = checkout
-	df = diff
-	dc = diff --cached
-	lp = log -p
-	lol = log --graph --decorate --pretty=oneline --abbrev-commit --date=relative
-	lola = log --graph --decorate --pretty=oneline --abbrev-commit --date=relative --all
-        lolap = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	ls = ls-files
+    st = status
+    sts = status -sb
+stnu = status --untracked-files=no
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    dc = diff --cached
+    dk = diff --check
+    lp = log -p
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit --date=relative
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --date=relative --all
+    lolap = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    ls = ls-files
 
-	# Show files ignored by git:
-	ign = ls-files -o -i --exclude-standard
+    # Show files ignored by git:
+    ign = ls-files -o -i --exclude-standard
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
 # NOTE: this will break 'git add origin' (e.g., for github and bitbucket), so disable it before adding origin.
 #[remote "origin"]
-#	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+#    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
