@@ -70,8 +70,7 @@ This command is convenient when reading novel, documentation."
 (when (display-graphic-p)
   (setq fonts
         (cond ((eq system-type 'darwin)
-               ; '("Manaco" "STHeiti"))
-               '("Droid Sans Mono" "STHeiti"))
+               '("Fira Mono" "Droid Sans Mono" "Manaco" "STHeiti"))
               ((eq system-type 'gnu/linux)
                '("Menlo" "WenQuanYi Zen Hei"))
               ((eq system-type 'windows-nt)
@@ -203,4 +202,6 @@ This command is convenient when reading novel, documentation."
 ;; Auto format on save.
 ; (add-hook 'php-mode-hook 'phpcbf-enable-on-save)
 
-(load "~/.emacs.d/brithon.el")
+;; (package-install 'git-gutter)
+(global-git-gutter-mode t)
+(git-gutter:linum-setup)
