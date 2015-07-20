@@ -80,7 +80,7 @@ This command is convenient when reading novel, documentation."
 		  ("Microsoft Yahei" . 1.2)
 		  ("WenQuanYi Zen Hei" . 1.2)))
   (set-face-attribute 'default nil :font
-                      (format "%s:pixelsize=%d" (car fonts) 13))
+                      (format "%s:pixelsize=%d" (car fonts) 15))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family (car (cdr fonts))))))
