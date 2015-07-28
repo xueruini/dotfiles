@@ -5,7 +5,7 @@
   ],
   "env": {                           // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
     "browser": true,                 // browser global variables
-    "node": true,                     // Node.js global variables and Node.js-specific rules
+    "node": true,                    // Node.js global variables and Node.js-specific rules
     "jquery": true
   },
   "ecmaFeatures": {
@@ -30,12 +30,12 @@
 /**
  * Strict mode
  */
-    "strict": [2, "global"]          // http://eslint.org/docs/rules/strict
+    "strict": [2, "global"],          // http://eslint.org/docs/rules/strict
 
 /**
  * ES6
-    "no-var": 2,                     // http://eslint.org/docs/rules/no-var
-    "prefer-const": 2,               // http://eslint.org/docs/rules/prefer-const
+ *   "no-var": 2,                     // http://eslint.org/docs/rules/no-var
+ *   "prefer-const": 2,               // http://eslint.org/docs/rules/prefer-const
  */
 
 /**
