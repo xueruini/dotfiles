@@ -70,7 +70,7 @@ This command is convenient when reading novel, documentation."
 (when (display-graphic-p)
   (setq fonts
         (cond ((eq system-type 'darwin)
-               '("Fira Mono" "Droid Sans Mono" "Manaco" "STHeiti"))
+               '("Cousine" "Fira Mono" "Droid Sans Mono" "Manaco" "STHeiti"))
               ((eq system-type 'gnu/linux)
                '("Menlo" "WenQuanYi Zen Hei"))
               ((eq system-type 'windows-nt)
@@ -187,11 +187,15 @@ This command is convenient when reading novel, documentation."
 
 ;; javascript
 ;; (package-install 'js2-mode)
+; as major mode
+; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+; just for linting
 (add-hook 'js-mode-hook 'js2-minor-mode)
 (setq js2-highlight-level 3)
-(setq js2-basic-offset 4)
-(setq js-indent-level 4)
-(setq js-switch-indent-offset 4)
+(setq js2-basic-offset 2)
+(setq js2-bounce-indent-p t)
+(setq js-indent-level 2)
+(setq js-switch-indent-offset 2)
 
 ;; flycheck
 ;; (package-install 'flycheck)
