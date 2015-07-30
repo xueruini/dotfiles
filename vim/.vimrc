@@ -1,3 +1,4 @@
+" use: http://vim.spf13.com/
 syntax on
 set hlsearch
 set ignorecase

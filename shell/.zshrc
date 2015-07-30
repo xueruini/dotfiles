@@ -1,6 +1,3 @@
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
-source /usr/local/share/zsh/site-functions/_aws
-
 ## ZSH-specific shell environment flags only relvant to interactive shells
 # Variable behaviors
 setopt NO_ALL_EXPORT		# Don't export all variables to environment
@@ -73,13 +70,14 @@ antigen use oh-my-zsh
 antigen bundle common-aliases
 antigen bundle colored-man
 antigen bundle colorize
-antigen bundle bundler
 antigen bundle command-not-found
 antigen bundle history
 antigen bundle history-substring-search
 antigen bundle osx
 antigen bundle vagrant
 antigen bundle docker
+antigen bundle boot2docker
+antigen bundle aws
 antigen bundle brew
 antigen bundle brew-cask
 antigen bundle git
@@ -87,15 +85,14 @@ antigen bundle git-extras
 antigen bundle pip
 antigen bundle rsync
 antigen bundle python
-antigen bundle virtualenvwrapper
+antigen bundle virtualenv
 antigen bundle lein
 antigen bundle node
+antigen bundle composer
+antigen bundle sudo
 antigen bundle npm
+antigen bundle httpie
 antigen bundle tmux
-antigen bundle vundle
-antigen bundle sprunge
-antigen bundle fabric
-# antigen bundle fasd
 antigen bundle z
 antigen bundle zsh_reload
 
