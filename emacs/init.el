@@ -70,7 +70,7 @@ This command is convenient when reading novel, documentation."
 (when (display-graphic-p)
   (setq fonts
         (cond ((eq system-type 'darwin)
-               '("Cousine" "Fira Mono" "Droid Sans Mono" "Manaco" "STHeiti"))
+               '("Fira Mono" "Cousine" "Droid Sans Mono" "Manaco" "STHeiti"))
               ((eq system-type 'gnu/linux)
                '("Menlo" "WenQuanYi Zen Hei"))
               ((eq system-type 'windows-nt)
@@ -113,6 +113,7 @@ This command is convenient when reading novel, documentation."
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
+(setq TeX-source-correlate-method 'synctex)
 
 ;; helm
 ;; (package-install 'helm)
