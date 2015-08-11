@@ -1,6 +1,0 @@
-{
-    "preset": "crockford",
-    "fileExtensions": [ ".js", ".jsx" ],
-    "validateQuoteMarks": "'",
-    "disallowMultipleVarDecl": "strict"
-}
