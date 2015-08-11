@@ -96,7 +96,6 @@ This command is convenient when reading novel, documentation."
 
 ;; PATH fix for macos
 ;; (package-install 'exec-path-from-shell)
-(require 'exec-path-from-shell)
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
@@ -117,7 +116,7 @@ This command is convenient when reading novel, documentation."
 
 ;; helm
 ;; (package-install 'helm)
-(require 'helm-config)
+;(require 'helm-config)
 (require 'helm-grep)
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
@@ -161,16 +160,13 @@ This command is convenient when reading novel, documentation."
 
 ;; color-theme
 ;; (package-install 'color-theme)
-(when window-system
-  (require 'color-theme)
+(when (display-graphic-p)
   (color-theme-initialize)
   ; BUG: load diff-mode (or any necessary on error) before issuing color-theme-select
   ; (require 'diff-mode)
   ; (color-theme-snowish)
-  ; (package-install 'color-theme-solarized)
-  (load-theme 'solarized-dark t)
-  ; (load-theme 'solarized-light t)
-  )
+  ; (package-install 'color-theme-sanityinc-solarized)
+  (load-theme 'sanityinc-solarized-dark t))
 
 ;; sr-speedbar
 ;; (package-install 'sr-speedbar)
@@ -189,18 +185,22 @@ This command is convenient when reading novel, documentation."
 ;; javascript
 ;; (package-install 'js2-mode)
 ; as major mode
-; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-; just for linting
-(add-hook 'js-mode-hook 'js2-minor-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; just for linting in minor mode
+;; (add-hook 'js-mode-hook 'js2-minor-mode)
 (setq js2-highlight-level 3)
 (setq js2-basic-offset 2)
 (setq js2-bounce-indent-p t)
+(setq js2-auto-indent-p t)
 (setq js-indent-level 2)
 (setq js-switch-indent-offset 2)
 
 ;; flycheck
 ;; (package-install 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+              '(javascript-jshint))
 
 ;; phpcbf (install phpcs first)
 ;; Auto format on save.
