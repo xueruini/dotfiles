@@ -1,0 +1,18 @@
+{
+    "color_scheme": "Packages/User/SublimeLinter/Solarized (Dark) (SL).tmTheme",
+    "font_face": "Droid Sans Mono",
+    "font_size": 13,
+    "caret_style": "phase",
+    "highlight_line": true,
+    "line_padding_bottom": 1,
+    "line_padding_top": 1,
+    "scroll_past_end": false,
+    "highlight_modified_tabs": true,
+    "fade_fold_buttons": false,
+    "word_wrap": true,
+    "bold_folder_labels": true,
+    "ignored_packages":
+    [
+        "Vintage"
+    ]
+}
