@@ -188,10 +188,13 @@ This command is convenient when reading novel, documentation."
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 ;; just for linting in minor mode
 ;; (add-hook 'js-mode-hook 'js2-minor-mode)
-(setq js2-highlight-level 3)
-(setq js2-basic-offset 2)
-(setq js2-bounce-indent-p t)
-(setq js2-auto-indent-p t)
+(setq-default js2-highlight-level 3
+              js2-basic-offset 2
+              js2-bounce-indent-p nil
+              js2-auto-indent-p t
+              js2-include-node-externs t
+              js2-include-browser-externs t
+              js2-skip-preprocessor-directives t)
 (setq js-indent-level 2)
 (setq js-switch-indent-offset 2)
 
