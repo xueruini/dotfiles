@@ -3,9 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flycheck-phpcs-standard "WordPress")
+ '(flycheck-phpcs-standard "WordPress-Core")
  '(php-mode-coding-style (quote wordpress))
- '(phpcbf-standard "WordPress")
+ '(phpcbf-standard "WordPress-Core")
  '(reb-re-syntax (quote string))
  '(safe-local-variable-values (quote ((TeX-modes . latex) (TeX-engine . pdflatex))))
  '(speedbar-show-unknown-files t)
