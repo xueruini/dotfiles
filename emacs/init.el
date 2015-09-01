@@ -198,6 +198,11 @@ This command is convenient when reading novel, documentation."
 (setq js-indent-level 2)
 (setq js-switch-indent-offset 2)
 
+;; python
+;; (package-install 'anaconda-mode)
+(add-hook 'python-mode-hook 'anaconda-mode)
+(add-hook 'python-mode-hook 'eldoc-mode)
+
 ;; flycheck
 ;; (package-install 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
