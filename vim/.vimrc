@@ -11,4 +11,4 @@ set incsearch
 set ruler
 set scs
 set nu
-set tw=76
+set tw=78
