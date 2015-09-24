@@ -34,3 +34,11 @@ stnu = status --untracked-files=no
 # NOTE: this will break 'git add origin' (e.g., for github and bitbucket), so disable it before adding origin.
 #[remote "origin"]
 #    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+[diff]
+	submodule = log
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
