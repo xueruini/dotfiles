@@ -68,7 +68,7 @@ source "$HOME/.antigen/antigen.zsh"
 antigen use oh-my-zsh
 
 antigen bundle common-aliases
-antigen bundle colored-man
+antigen bundle colored-man-pages
 antigen bundle colorize
 antigen bundle command-not-found
 antigen bundle history
