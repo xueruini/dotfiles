@@ -106,13 +106,16 @@ This command is convenient when reading novel, documentation."
 
 ;; auctex & reftex
 ;; (package-install 'auctex)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
-(add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
+(add-hook 'LaTeX-mode-hook 'tex/enablers)   ; with AUCTeX LaTeX mode
+(add-hook 'latex-mode-hook 'tex/enablers)   ; with Emacs latex mode
 (setq reftex-plug-into-AUCTeX t)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 (setq TeX-source-correlate-method 'synctex)
+(defun tex/enablers ()
+  (turn-on-reftex)
+  (add-to-list 'TeX-command-list '("Make" "make" TeX-run-command nil t)))
 
 ;; helm
 ;; (package-install 'helm)
@@ -164,9 +167,10 @@ This command is convenient when reading novel, documentation."
   (color-theme-initialize)
   ; BUG: load diff-mode (or any necessary on error) before issuing color-theme-select
   ; (require 'diff-mode)
-  ; (color-theme-snowish)
+   (color-theme-xemacs)
   ; (package-install 'color-theme-sanityinc-solarized)
-  (load-theme 'sanityinc-solarized-dark t))
+  ; (load-theme 'sanityinc-solarized-dark t)
+)
 
 ;; sr-speedbar
 ;; (package-install 'sr-speedbar)
