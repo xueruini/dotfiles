@@ -15,9 +15,6 @@ fi
 # z
 . `brew --prefix`/etc/profile.d/z.sh
 
-# aws
-complete -C aws_completer aws
-
 ## use vim to read man page
 #function man() {
 #  /usr/bin/man $* | col -b | vim -R -c 'set ft=man nomod nolist' -
@@ -34,3 +31,6 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[1;31m") \
   man "$@"
 }
+
+# added by Miniconda3 3.19.0 installer
+export PATH="/Users/xueruini/miniconda3/bin:$PATH"
