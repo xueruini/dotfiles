@@ -77,7 +77,6 @@ antigen bundle osx
 antigen bundle vagrant
 antigen bundle docker
 antigen bundle boot2docker
-antigen bundle aws
 antigen bundle brew
 antigen bundle brew-cask
 antigen bundle git
@@ -88,12 +87,13 @@ antigen bundle python
 antigen bundle virtualenv
 antigen bundle lein
 antigen bundle node
+antigen bundle golang
 antigen bundle composer
 antigen bundle sudo
 antigen bundle npm
 antigen bundle httpie
 antigen bundle tmux
-antigen bundle z
+antigen bundle fasd
 antigen bundle zsh_reload
 
 antigen bundle zsh-users/zsh-completions src
