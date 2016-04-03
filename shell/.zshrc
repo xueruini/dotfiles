@@ -88,7 +88,6 @@ antigen bundle virtualenv
 antigen bundle lein
 antigen bundle node
 antigen bundle golang
-antigen bundle composer
 antigen bundle sudo
 antigen bundle npm
 antigen bundle httpie
@@ -105,3 +104,9 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen theme pygmalion
 
 antigen-apply
+
+# add brew
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# added by Miniconda3 3.19.0 installer
+# export PATH="/Users/xueruini/miniconda3/bin:$PATH"
