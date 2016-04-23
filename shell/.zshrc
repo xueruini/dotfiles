@@ -108,5 +108,8 @@ antigen-apply
 # add brew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-# added by Miniconda3 3.19.0 installer
-# export PATH="/Users/xueruini/miniconda3/bin:$PATH"
+# GOPATH
+export GOPATH=$HOME/Documents/gocode
+
+# pip should only run if there is a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=true
