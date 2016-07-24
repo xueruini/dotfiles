@@ -14,7 +14,7 @@
 (when (display-graphic-p)
   (tooltip-mode -1)
   (tool-bar-mode -1)
-  ; (menu-bar-mode -1)
+  ;; (menu-bar-mode -1)
   (scroll-bar-mode -1))
 
 (setq make-backup-files nil)
@@ -77,8 +77,8 @@ This command is convenient when reading novel, documentation."
                '("Consolas"  "Microsoft Yahei"))))
   (setq face-font-rescale-alist
         '(("STHeiti" . 1.2)
-		  ("Microsoft Yahei" . 1.2)
-		  ("WenQuanYi Zen Hei" . 1.2)))
+          ("Microsoft Yahei" . 1.2)
+          ("WenQuanYi Zen Hei" . 1.2)))
   (set-face-attribute 'default nil :font
                       (format "%s:pixelsize=%d" (car fonts) 14))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
@@ -116,10 +116,14 @@ This command is convenient when reading novel, documentation."
 (defun tex/enablers ()
   (turn-on-reftex)
   (add-to-list 'TeX-command-list '("Make" "make" TeX-run-command nil t)))
+;; (package-install 'cdlatex)
+(add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)   ; with AUCTeX LaTeX mode
+(add-hook 'latex-mode-hook 'turn-on-cdlatex)   ; with Emacs latex mode
+
 
 ;; helm
 ;; (package-install 'helm)
-;(require 'helm-config)
+(require 'helm-config)
 (require 'helm-grep)
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
@@ -221,3 +225,6 @@ This command is convenient when reading novel, documentation."
 ;; (package-install 'git-gutter)
 (global-git-gutter-mode t)
 (git-gutter:linum-setup)
+
+;; aggressive-indent
+(global-aggressive-indent-mode 1)
