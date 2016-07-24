@@ -76,7 +76,6 @@ antigen bundle history-substring-search
 antigen bundle osx
 antigen bundle vagrant
 antigen bundle docker
-antigen bundle boot2docker
 antigen bundle brew
 antigen bundle brew-cask
 antigen bundle git
@@ -85,6 +84,7 @@ antigen bundle pip
 antigen bundle rsync
 antigen bundle python
 antigen bundle virtualenv
+# unset VIRTUAL_ENV_DISABLE_PROMPT
 antigen bundle lein
 antigen bundle node
 antigen bundle golang
@@ -101,12 +101,16 @@ antigen bundle zsh-users/zsh-autosuggestions
 # antigen bundle zsh-users/fizsh
 
 #antigen theme jreese
-antigen theme pygmalion
+#antigen theme pygmalion
+antigen theme xueruini/oh-my-zsh-seeker-theme seeker
 
 antigen-apply
 
 # add brew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# auto completions
+source $(brew --prefix)/share/zsh/site-functions/_aws
 
 # GOPATH
 export GOPATH=$HOME/Documents/gocode
