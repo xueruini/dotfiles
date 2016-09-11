@@ -10,6 +10,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
+complete -C aws_completer aws
 
 # fasd
 fasd_cache="$HOME/.fasd-init-bash"
