@@ -29,18 +29,15 @@ stnu = status --untracked-files=no
     ign = ls-files -o -i --exclude-standard
 [filter "media"]
     required = true
-    clean = git media clean %f
-    smudge = git media smudge %f
-# NOTE: this will break 'git add origin' (e.g., for github and bitbucket), so disable it before adding origin.
-#[remote "origin"]
-#    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+    clean = git media clean -- %f
+    smudge = git media smudge -- %f
 [diff]
 	submodule = log
 [credential]
 	helper = osxkeychain
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	clean = git-lfs clean -- %f
 [status]
 	submodulesummary = yes
