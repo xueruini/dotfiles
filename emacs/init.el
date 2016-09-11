@@ -3,9 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flycheck-phpcs-standard "WordPress-Core")
- '(php-mode-coding-style (quote wordpress))
- '(phpcbf-standard "WordPress-Core")
+ ;; '(flycheck-phpcs-standard "WordPress-Core")
+ ;; '(php-mode-coding-style (quote wordpress))
+ ;; '(phpcbf-standard "WordPress-Core")
  '(reb-re-syntax (quote string))
  '(safe-local-variable-values (quote ((TeX-modes . latex) (TeX-engine . pdflatex))))
  '(speedbar-show-unknown-files t)
@@ -35,7 +35,7 @@ vi style of % jumping to matching brace."
 (global-set-key "%" 'goto-match-paren)
 
 ;; fill
-(setq-default auto-fill-function 'do-auto-fill)
+;; (setq-default auto-fill-function 'do-auto-fill)
 (setq-default fill-column 80)
 ;; https://github.com/xahlee/xah_emacs_init/blob/master/xah_emacs_font.el
 (defun xah-toggle-margin-right ()
@@ -171,7 +171,7 @@ This command is convenient when reading novel, documentation."
   (color-theme-initialize)
   ; BUG: load diff-mode (or any necessary on error) before issuing color-theme-select
   ; (require 'diff-mode)
-   (color-theme-xemacs)
+  (color-theme-xemacs)
   ; (package-install 'color-theme-sanityinc-solarized)
   ; (load-theme 'sanityinc-solarized-dark t)
 )
@@ -228,3 +228,6 @@ This command is convenient when reading novel, documentation."
 
 ;; aggressive-indent
 (global-aggressive-indent-mode 1)
+
+;; (package-install 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
