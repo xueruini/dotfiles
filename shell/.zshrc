@@ -62,8 +62,11 @@ rationalise-dot() {
 zle -N rationalise-dot
 bindkey . rationalise-dot
 
-# antigen
-source "$HOME/.antigen/antigen.zsh"
+# add brew
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# antigen via brew
+source $(brew --prefix)/share/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
@@ -84,7 +87,6 @@ antigen bundle pip
 antigen bundle rsync
 antigen bundle python
 antigen bundle virtualenv
-# unset VIRTUAL_ENV_DISABLE_PROMPT
 antigen bundle lein
 antigen bundle node
 antigen bundle golang
@@ -104,10 +106,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 #antigen theme pygmalion
 antigen theme xueruini/oh-my-zsh-seeker-theme seeker
 
-antigen-apply
-
-# add brew
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+antigen apply
 
 # auto completions
 source $(brew --prefix)/share/zsh/site-functions/_aws
