@@ -3,9 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(flycheck-phpcs-standard "WordPress-Core")
- ;; '(php-mode-coding-style (quote wordpress))
- ;; '(phpcbf-standard "WordPress-Core")
+ '(package-selected-packages
+   (quote
+    (rainbow-mode latex-preview-pane smartparens zenburn-theme foggy-night-theme sublime-themes web-mode undo-tree sql-indent slime python-docstring php-mode nginx-mode lua-mode jsx-mode json-mode graphviz-dot-mode go-errcheck go-eldoc go-dlv go-direx go-complete gitignore-mode gitconfig-mode gitattributes-mode git-gutter flycheck-tip flycheck-status-emoji flycheck-color-mode-line exec-path-from-shell dockerfile-mode django-manage color-theme-sanityinc-solarized color-theme cider auctex anaconda-mode aggressive-indent)))
  '(reb-re-syntax (quote string))
  '(safe-local-variable-values (quote ((TeX-modes . latex) (TeX-engine . pdflatex))))
  '(speedbar-show-unknown-files t)
@@ -20,9 +20,6 @@
 (setq make-backup-files nil)
 
 (setq-default line-spacing 4)
-
-(show-paren-mode t)
-(setq show-paren-style 'expression)
 
 ;; http://www.emacswiki.org/emacs/NavigatingParentheses
 (defun goto-match-paren (arg)
@@ -119,7 +116,8 @@ This command is convenient when reading novel, documentation."
 ;; (package-install 'cdlatex)
 (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)   ; with AUCTeX LaTeX mode
 (add-hook 'latex-mode-hook 'turn-on-cdlatex)   ; with Emacs latex mode
-
+;; (package-install 'latex-preview-pane)
+(latex-preview-pane-enable)
 
 ;; helm
 ;; (package-install 'helm)
@@ -231,3 +229,8 @@ This command is convenient when reading novel, documentation."
 
 ;; (package-install 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; (package-install 'smartparens)
+(require 'smartparens-config)
+;; (show-paren-mode t)
+;; (setq show-paren-style 'expression)
