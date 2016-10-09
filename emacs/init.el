@@ -11,6 +11,9 @@
  '(speedbar-show-unknown-files t)
  '(speedbar-use-images nil))
 
+(show-paren-mode t)
+(setq show-paren-style 'expression)
+
 (when (display-graphic-p)
   (tooltip-mode -1)
   (tool-bar-mode -1)
@@ -232,5 +235,4 @@ This command is convenient when reading novel, documentation."
 
 ;; (package-install 'smartparens)
 (require 'smartparens-config)
-;; (show-paren-mode t)
-;; (setq show-paren-style 'expression)
+(smartparens-global-mode t)
