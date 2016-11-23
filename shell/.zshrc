@@ -79,6 +79,7 @@ antigen bundle history-substring-search
 antigen bundle osx
 antigen bundle vagrant
 antigen bundle docker
+antigen bundle docker-compose
 antigen bundle brew
 antigen bundle brew-cask
 antigen bundle git
@@ -88,14 +89,17 @@ antigen bundle rsync
 antigen bundle python
 antigen bundle virtualenv
 antigen bundle lein
+antigen bundle thefuck
 antigen bundle node
 antigen bundle golang
 antigen bundle sudo
 antigen bundle npm
 antigen bundle httpie
 antigen bundle tmux
+antigen bundle tig
 antigen bundle fasd
 antigen bundle zsh_reload
+antigen bundle zsh-navigation-tools
 
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting

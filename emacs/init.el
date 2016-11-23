@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (go-add-tags magit markdown-mode rainbow-mode latex-preview-pane zenburn-theme foggy-night-theme sublime-themes web-mode undo-tree sql-indent slime python-docstring php-mode nginx-mode lua-mode jsx-mode json-mode graphviz-dot-mode go-errcheck go-eldoc go-dlv go-direx go-complete gitignore-mode gitconfig-mode gitattributes-mode git-gutter flycheck-tip flycheck-status-emoji flycheck-color-mode-line exec-path-from-shell dockerfile-mode django-manage color-theme-sanityinc-solarized color-theme cider auctex anaconda-mode aggressive-indent)))
+    (yaml-mode sphinx-doc go-add-tags magit markdown-mode rainbow-mode latex-preview-pane zenburn-theme foggy-night-theme sublime-themes web-mode undo-tree sql-indent slime python-docstring php-mode nginx-mode lua-mode jsx-mode json-mode graphviz-dot-mode go-errcheck go-eldoc go-dlv go-direx go-complete gitignore-mode gitconfig-mode gitattributes-mode git-gutter flycheck-tip flycheck-status-emoji flycheck-color-mode-line exec-path-from-shell dockerfile-mode django-manage color-theme-sanityinc-solarized color-theme cider auctex anaconda-mode aggressive-indent)))
  '(reb-re-syntax (quote string))
  '(safe-local-variable-values (quote ((TeX-modes . latex) (TeX-engine . pdflatex))))
  '(speedbar-show-unknown-files t)
@@ -209,9 +209,12 @@ This command is convenient when reading novel, documentation."
 
 ;; python
 ;; (package-install 'anaconda-mode)
-(add-hook 'python-mode-hook 'anaconda-mode)
-(add-hook 'python-mode-hook 'eldoc-mode)
-
+;; (package-install 'eldoc-mode)
+;; (package-install 'sphinx-doc)
+(add-hook 'python-mode-hook (lambda ()
+                              (anaconda-mode t)
+                              (eldoc-mode t)
+                              (sphinx-doc-mode t)))
 ;; flycheck
 ;; (package-install 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)

@@ -12,7 +12,7 @@
 [alias]
     st = status
     sts = status -sb
-stnu = status --untracked-files=no
+    stnu = status --untracked-files=no
     ci = commit
     br = branch
     co = checkout
@@ -39,5 +39,6 @@ stnu = status --untracked-files=no
 	smudge = git-lfs smudge -- %f
 	required = true
 	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
 [status]
 	submodulesummary = yes
