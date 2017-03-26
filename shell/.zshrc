@@ -65,6 +65,13 @@ bindkey . rationalise-dot
 # add brew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
+# powerline
+# POWERLEVEL9K_MODE='compatible'
+# POWERLEVEL9K_MODE='awesome-patched'
+# POWERLEVEL9K_MODE='awesome-fontconfig'
+# POWERLEVEL9K_MODE='flat'
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+
 # antigen via brew
 source $(brew --prefix)/share/antigen/antigen.zsh
 
@@ -87,9 +94,10 @@ antigen bundle git-extras
 antigen bundle pip
 antigen bundle rsync
 antigen bundle python
+# plugin pyenv breaks
+# antigen bundle pyenv
 antigen bundle virtualenv
 antigen bundle lein
-antigen bundle thefuck
 antigen bundle node
 antigen bundle golang
 antigen bundle sudo
@@ -106,9 +114,10 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 # antigen bundle zsh-users/fizsh
 
-#antigen theme jreese
-#antigen theme pygmalion
+# antigen theme jreese
+# antigen theme pygmalion
 antigen theme xueruini/oh-my-zsh-seeker-theme seeker
+# antigen theme bhilburn/powerlevel9k powerlevel9k
 
 antigen apply
 
@@ -120,3 +129,7 @@ export GOPATH=$HOME/Documents/gocode
 
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
+
+# pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
