@@ -63,7 +63,7 @@ zle -N rationalise-dot
 bindkey . rationalise-dot
 
 # add brew
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+# export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # powerline
 # POWERLEVEL9K_MODE='compatible'
@@ -128,7 +128,7 @@ source $(brew --prefix)/share/zsh/site-functions/_aws
 export GOPATH=$HOME/Documents/gocode
 
 # pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
+# export PIP_REQUIRE_VIRTUALENV=true
 
 # pyenv
 eval "$(pyenv init -)"

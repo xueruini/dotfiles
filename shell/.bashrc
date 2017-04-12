@@ -4,7 +4,7 @@ export PS1='\[\033[34m\]\u\[\033[33m@\[\033[36m\]\h:\[\033[35m\]\w\[\033[32m\]$(
 alias rm="rm -i"
 
 # brew
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# export PATH=/usr/local/bin:$PATH
 
 # bash-completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -36,7 +36,7 @@ man() {
 export GOPATH=$HOME/Documents/gocode
 
 # pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
+# export PIP_REQUIRE_VIRTUALENV=true
 
 # pyenv
 eval "$(pyenv init -)"
