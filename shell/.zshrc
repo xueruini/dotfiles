@@ -52,15 +52,15 @@ bindkey -e          # Emacs key bindings
 limit coredumpsize 0
 
 # Clever dot expansion
-rationalise-dot() {
-  if [[ $LBUFFER = *.. ]]; then
-    LBUFFER+=/..
-  else
-    LBUFFER+=.
-  fi
-}
-zle -N rationalise-dot
-bindkey . rationalise-dot
+#rationalise-dot() {
+#  if [[ $LBUFFER = *.. ]]; then
+#    LBUFFER+=/..
+#  else
+#    LBUFFER+=.
+#  fi
+#}
+#zle -N rationalise-dot
+#bindkey . rationalise-dot
 
 # add brew
 # export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
@@ -95,7 +95,7 @@ antigen bundle pip
 antigen bundle rsync
 antigen bundle python
 # plugin pyenv breaks
-# antigen bundle pyenv
+#antigen bundle pyenv
 antigen bundle virtualenv
 antigen bundle lein
 antigen bundle node
@@ -126,6 +126,8 @@ source $(brew --prefix)/share/zsh/site-functions/_aws
 
 # GOPATH
 export GOPATH=$HOME/Documents/gocode
+export GOROOT=$(go env GOROOT)
+export PATH=$GOPATH/bin:$PATH
 
 # pip should only run if there is a virtualenv currently activated
 # export PIP_REQUIRE_VIRTUALENV=true
