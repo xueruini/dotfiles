@@ -89,6 +89,7 @@ antigen bundle docker
 antigen bundle docker-compose
 antigen bundle brew
 antigen bundle brew-cask
+antigen bundle globalias
 antigen bundle git
 antigen bundle git-extras
 antigen bundle pip
