@@ -89,14 +89,15 @@ antigen bundle docker
 antigen bundle docker-compose
 antigen bundle brew
 antigen bundle brew-cask
-antigen bundle globalias
+# C-x a to expand the alias under the cursor
+# antigen bundle globalias
 antigen bundle git
 antigen bundle git-extras
 antigen bundle pip
 antigen bundle rsync
 antigen bundle python
 # plugin pyenv breaks
-#antigen bundle pyenv
+# antigen bundle pyenv
 antigen bundle virtualenv
 antigen bundle lein
 antigen bundle node
