@@ -117,14 +117,14 @@ antigen bundle zsh-users/zsh-autosuggestions
 # antigen bundle zsh-users/fizsh
 
 # antigen theme jreese
-# antigen theme pygmalion
-antigen theme xueruini/oh-my-zsh-seeker-theme seeker
+antigen theme pygmalion
+# antigen theme xueruini/oh-my-zsh-seeker-theme seeker
 # antigen theme bhilburn/powerlevel9k powerlevel9k
 
 antigen apply
 
 # auto completions
-source $(brew --prefix)/share/zsh/site-functions/_aws
+# source $(brew --prefix)/share/zsh/site-functions/_aws
 
 # GOPATH
 export GOPATH=$HOME/Documents/gocode

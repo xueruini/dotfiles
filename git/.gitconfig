@@ -43,3 +43,5 @@
 	required = true
 [status]
 	submodulesummary = yes
+[magit]
+	hideCampaign = true
