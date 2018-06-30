@@ -64,6 +64,7 @@ limit coredumpsize 0
 
 # add brew
 # export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export HOMEBREW_NO_ANALYTICS=1
 
 # powerline
 # POWERLEVEL9K_MODE='compatible'
@@ -117,8 +118,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 # antigen bundle zsh-users/fizsh
 
 # antigen theme jreese
-antigen theme pygmalion
-# antigen theme xueruini/oh-my-zsh-seeker-theme seeker
+# antigen theme pygmalion
+antigen theme xueruini/oh-my-zsh-seeker-theme seeker
 # antigen theme bhilburn/powerlevel9k powerlevel9k
 
 antigen apply
