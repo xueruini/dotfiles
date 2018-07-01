@@ -109,6 +109,7 @@ antigen bundle node
 antigen bundle golang
 antigen bundle sudo
 antigen bundle npm
+antigen bundle nvm
 antigen bundle httpie
 antigen bundle tmux
 antigen bundle tig
@@ -128,17 +129,19 @@ antigen theme xueruini/oh-my-zsh-seeker-theme seeker
 
 antigen apply
 
-# auto completions
+# aws
 # source $(brew --prefix)/share/zsh/site-functions/_aws
 
 # GOPATH
-export GOPATH=$HOME/Documents/gocode
-export GOROOT=$(go env GOROOT)
-export PATH=$GOPATH/bin:$PATH
+#export GOPATH=$HOME/Documents/gocode
+#export GOROOT=$(go env GOROOT)
+#export PATH=$GOPATH/bin:$PATH
 
 # pip should only run if there is a virtualenv currently activated
 # export PIP_REQUIRE_VIRTUALENV=true
 
 # pyenv
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi

@@ -11,11 +11,11 @@ export HOMEBREW_NO_ANALYTICS=1
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-# bash-completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  source $(brew --prefix)/etc/bash_completion
+# bash-completion@2 for bash 4.1+
+if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+  source $(brew --prefix)/share/bash-completion/bash_completion
 fi
-complete -C aws_completer aws
+# complete -C aws_completer aws
 
 # fasd
 fasd_cache="$HOME/.fasd-init-bash"
@@ -38,13 +38,16 @@ man() {
 }
 
 # GOPATH
-export GOPATH=$HOME/Documents/gocode
-export GOROOT=$(go env GOROOT)
-export PATH=$GOPATH/bin:$PATH
+#export GOPATH=$HOME/Documents/gocode
+#export GOROOT=$(go env GOROOT)
+#export PATH=$GOPATH/bin:$PATH
 
+# This is deprecated with pipenv.
 # pip should only run if there is a virtualenv currently activated
 # export PIP_REQUIRE_VIRTUALENV=true
 
 # pyenv
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi
