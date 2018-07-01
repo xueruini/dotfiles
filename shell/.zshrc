@@ -66,6 +66,10 @@ limit coredumpsize 0
 # export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export HOMEBREW_NO_ANALYTICS=1
 
+# nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # powerline
 # POWERLEVEL9K_MODE='compatible'
 # POWERLEVEL9K_MODE='awesome-patched'
