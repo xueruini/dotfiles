@@ -67,7 +67,7 @@ limit coredumpsize 0
 export HOMEBREW_NO_ANALYTICS=1
 
 # nvm
-export NVM_DIR=~/.nvm
+export NVM_DIR=$HOME/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 # powerline
@@ -98,24 +98,24 @@ antigen bundle brew-cask
 # antigen bundle globalias
 antigen bundle git
 antigen bundle git-extras
-antigen bundle pip
-antigen bundle rsync
 antigen bundle python
-# plugin pyenv breaks
-# antigen bundle pyenv
+antigen bundle pip
+antigen bundle pyenv
 antigen bundle virtualenv
+antigen bundle rsync
 antigen bundle lein
-antigen bundle node
 antigen bundle golang
 antigen bundle sudo
-antigen bundle npm
 antigen bundle nvm
+antigen bundle npm
+antigen bundle node
 antigen bundle httpie
 antigen bundle tmux
 antigen bundle tig
 antigen bundle fasd
 antigen bundle zsh_reload
-antigen bundle zsh-navigation-tools
+# fzf is better
+# antigen bundle zsh-navigation-tools
 
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -133,15 +133,17 @@ antigen apply
 # source $(brew --prefix)/share/zsh/site-functions/_aws
 
 # GOPATH
-#export GOPATH=$HOME/Documents/gocode
-#export GOROOT=$(go env GOROOT)
-#export PATH=$GOPATH/bin:$PATH
+export GOPATH=$HOME/Documents/go
+export GOROOT=$(go env GOROOT)
+export PATH=$GOPATH/bin:$PATH
 
 # pip should only run if there is a virtualenv currently activated
 # export PIP_REQUIRE_VIRTUALENV=true
 
-# pyenv
-eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then
-  eval "$(pyenv virtualenv-init -)"
-fi
+## bundle pyenv works
+# eval "$(pyenv init -)"
+# if which pyenv-virtualenv-init > /dev/null; then
+#   eval "$(pyenv virtualenv-init -)"
+# fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

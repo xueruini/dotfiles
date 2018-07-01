@@ -8,7 +8,7 @@ alias rm="rm -i"
 export HOMEBREW_NO_ANALYTICS=1
 
 # nvm
-export NVM_DIR=~/.nvm
+export NVM_DIR=$HOME/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 # bash-completion@2 for bash 4.1+
@@ -38,9 +38,9 @@ man() {
 }
 
 # GOPATH
-#export GOPATH=$HOME/Documents/gocode
-#export GOROOT=$(go env GOROOT)
-#export PATH=$GOPATH/bin:$PATH
+export GOPATH=$HOME/Documents/go
+export GOROOT=$(go env GOROOT)
+export PATH=$GOPATH/bin:$PATH
 
 # This is deprecated with pipenv.
 # pip should only run if there is a virtualenv currently activated
@@ -51,3 +51,5 @@ eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then
   eval "$(pyenv virtualenv-init -)"
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
