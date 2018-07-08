@@ -54,7 +54,7 @@ Vagrant.configure("2") do |config|
     # Display the VirtualBox GUI when booting the machine
     # vb.gui = true
 
-    vb.name = "rtlbuilder-xenial-x86"
+    vb.name = "rtlbuilder-xenial32"
     # Customize the amount of memory on the VM:
     vb.memory = "4096"
   end
@@ -66,8 +66,13 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+    # supress the "unable to re-open stdin" warnings
+    export DEBIAN_FRONTEND=noninteractive
     # fix the boring locale warnings
-    update-locale LANGUAGE=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LC_ALL=en_US.UTF-8
+    update-locale LANGUAGE=en_US.UTF-8 LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+    # fix make menuconfig
+    echo "TERM=xterm" >> /etc/environment
+    echo "TERMINFO=/lib/terminfo" >> /etc/environment
     # install dependencies
     apt-get update
     apt-get install -y bc zlib1g-dev flex bison cmake automake gawk build-essential libncurses5-dev pkg-config
@@ -82,5 +87,7 @@ Vagrant.configure("2") do |config|
     # use bash instead of dash
     echo "dash dash/sh boolean false" | debconf-set-selections
     DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
+    # other tools for happy dev
+    # apt-get install -y clang-format-6.0 exuberant-ctags
   SHELL
 end
