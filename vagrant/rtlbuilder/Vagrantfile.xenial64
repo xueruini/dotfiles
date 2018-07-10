@@ -90,6 +90,8 @@ Vagrant.configure("2") do |config|
     # use bash instead of dash
     echo "dash dash/sh boolean false" | debconf-set-selections
     DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
+    # set timezone
+    # timedatectl set-timezone Asia/Shanghai
     # other tools for happy dev
     # apt-get install -y clang-format-6.0 exuberant-ctags
   SHELL
