@@ -69,7 +69,7 @@ Vagrant.configure("2") do |config|
     # supress the "unable to re-open stdin" warnings
     export DEBIAN_FRONTEND=noninteractive
     # fix the boring locale warnings
-    update-locale LANGUAGE=en_US.UTF-8 LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+    update-locale LANGUAGE=en_US.UTF-8 LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
     # fix make menuconfig
     echo "TERM=xterm" >> /etc/environment
     echo "TERMINFO=/lib/terminfo" >> /etc/environment
