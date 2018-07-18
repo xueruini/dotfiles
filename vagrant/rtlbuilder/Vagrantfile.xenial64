@@ -76,6 +76,8 @@ Vagrant.configure("2") do |config|
     # install dependencies
     # since 16.04, use --add-architecture to install 32bit libs
     dpkg --add-architecture i386
+    # for latest git
+    # add-apt-repository -y ppa:git-core/ppa
     apt-get update
     apt-get upgrade -y
     apt-get install -y git-core tig
