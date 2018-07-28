@@ -66,35 +66,36 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    # supress the "unable to re-open stdin" warnings
+    ## supress the "unable to re-open stdin" warnings
     export DEBIAN_FRONTEND=noninteractive
-    # fix the boring locale warnings
+    ## fix the boring locale warnings
     update-locale LANGUAGE=en_US.UTF-8 LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
-    # fix make menuconfig
+    ## fix make menuconfig
     echo "TERM=xterm" >> /etc/environment
     echo "TERMINFO=/lib/terminfo" >> /etc/environment
-    # install dependencies
-    # since 16.04, use --add-architecture to install 32bit libs
+    ## install dependencies
+    ## since 16.04, use --add-architecture to install 32bit libs
     dpkg --add-architecture i386
-    # for latest git
-    # add-apt-repository -y ppa:git-core/ppa
+    ## for latest git
+    add-apt-repository -y ppa:git-core/ppa
     apt-get update
     apt-get upgrade -y
-    apt-get install -y git-core tig
+    apt-get install -y git-core tig ntp
     apt-get install -y bc build-essential flex bison cmake automake gawk pkg-config
     apt-get install -y libncurses5-dev zlib1g-dev
-    # for 32bit
+    ## for 32bit
     apt-get install -y libstdc++6:i386 libc6:i386 zlib1g:i386
-    # install npm
+    ## install npm
     curl -sL https://deb.nodesource.com/setup_8.x | bash -
     apt-get install -y nodejs
     npm i -g npm@6.1.0
-    # use bash instead of dash
+    ## use bash instead of dash
     echo "dash dash/sh boolean false" | debconf-set-selections
     DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
-    # set timezone
-    # timedatectl set-timezone Asia/Shanghai
-    # other tools for happy dev
-    # apt-get install -y clang-format-6.0 exuberant-ctags
+    ## set timezone
+    timedatectl set-timezone Asia/Shanghai
+    timedatectl set-ntp true
+    ## other tools for happy dev
+    apt-get install -y clang-format-6.0 exuberant-ctags
   SHELL
 end
