@@ -94,6 +94,8 @@ Vagrant.configure("2") do |config|
     DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
     ## set timezone
     timedatectl set-timezone Asia/Shanghai
+    ## fix the clock drift on macos. I do not like the stackoverflow method: https://stackoverflow.com/questions/19490652/how-to-sync-time-on-host-wake-up-within-virtualbox
+    ## because it is not straightforward
     timedatectl set-ntp true
     ## other tools for happy dev
     apt-get install -y clang-format-6.0 exuberant-ctags
