@@ -96,7 +96,7 @@ Vagrant.configure("2") do |config|
     ## install npm
     curl -sL https://deb.nodesource.com/setup_8.x | bash -
     apt-get install -y nodejs
-    npm i -g npm@6.1.0
+    npm i -g npm@">=6.1.0"
     ## use bash instead of dash
     echo "dash dash/sh boolean false" | debconf-set-selections
     DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
