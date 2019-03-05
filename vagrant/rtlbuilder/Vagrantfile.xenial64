@@ -83,6 +83,8 @@ Vagrant.configure("2") do |config|
     ## install dependencies
     ## since 16.04, use --add-architecture to install 32bit libs
     dpkg --add-architecture i386
+    ## for 32bit
+    apt-get install -y libstdc++6:i386 libc6:i386 zlib1g:i386
     ## for latest git
     add-apt-repository -y ppa:git-core/ppa
     apt-get update
@@ -91,8 +93,8 @@ Vagrant.configure("2") do |config|
     apt-get install -y bc build-essential flex bison cmake automake gawk pkg-config
     apt-get install -y libncurses5-dev zlib1g-dev
     apt-get install -y liblzma-dev swig
-    ## for 32bit
-    apt-get install -y libstdc++6:i386 libc6:i386 zlib1g:i386
+    apt-get install -y python-pip
+    # pip install -U pipenv
     ## install npm
     curl -sL https://deb.nodesource.com/setup_8.x | bash -
     apt-get install -y nodejs
