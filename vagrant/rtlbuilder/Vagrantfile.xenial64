@@ -4,6 +4,12 @@
 # XRN: install plugin
 #  - vagrant-disksize
 #  - vagrant-vbguest
+required_plugins = %w( vagrant-disksize vagrant-vbguest )
+required_plugins.each do |plugin|
+  unless Vagrant.has_plugin?(plugin)
+    raise "#{plugin} is not installed!"
+  end
+end
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -19,6 +25,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
   config.vm.hostname = "rtlbuilder"
   config.disksize.size = "20GB"
+  # config.vbguest.installer_arguments = ['--nox11', '-- --do']
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
