@@ -37,11 +37,6 @@ man() {
   man "$@"
 }
 
-# GOPATH
-export GOPATH=$HOME/Documents/go
-export GOROOT=$(go env GOROOT)
-export PATH=$GOPATH/bin:$PATH
-
 # This is deprecated with pipenv.
 # pip should only run if there is a virtualenv currently activated
 # export PIP_REQUIRE_VIRTUALENV=true
@@ -52,4 +47,13 @@ if which pyenv-virtualenv-init > /dev/null; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+# fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# # GOPATH
+# export GOPATH=$HOME/Documents/go
+# export GOROOT=$(go env GOROOT)
+# export PATH=$GOPATH/bin:$PATH
+# gvm
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+gvm use go1.12.2

@@ -132,11 +132,6 @@ antigen apply
 # aws
 # source $(brew --prefix)/share/zsh/site-functions/_aws
 
-# GOPATH
-export GOPATH=$HOME/Documents/go
-export GOROOT=$(go env GOROOT)
-export PATH=$GOPATH/bin:$PATH
-
 # pip should only run if there is a virtualenv currently activated
 # export PIP_REQUIRE_VIRTUALENV=true
 
@@ -146,4 +141,13 @@ export PATH=$GOPATH/bin:$PATH
 #   eval "$(pyenv virtualenv-init -)"
 # fi
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+## GOPATH
+#export GOPATH=$HOME/Documents/go
+#export GOROOT=$(go env GOROOT)
+#export PATH=$GOPATH/bin:$PATH
+# gvm
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+gvm use go1.12.2
