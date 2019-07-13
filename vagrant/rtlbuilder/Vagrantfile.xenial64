@@ -93,13 +93,15 @@ Vagrant.configure("2") do |config|
     dpkg --add-architecture i386
     ## for 32bit
     apt-get install -y libstdc++6:i386 libc6:i386 zlib1g:i386
+    ## add git-lfs
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
     ## for latest git
     add-apt-repository -y ppa:git-core/ppa
     apt-get update
     apt-get upgrade -y
     apt-get install -y build-essential flex bison make cmake automake pkg-config
     apt-get install -y binutils gawk patch bzip2 gettext unzip sharutils curl bc
-    apt-get install -y git-core tig repo subversion
+    apt-get install -y git-core git-lfs tig repo subversion
     apt-get install -y libncurses5-dev zlib1g-dev libpcre3-dev libc6-dev
     apt-get install -y liblzma-dev swig
     apt-get install -y python-pip python-yaml
