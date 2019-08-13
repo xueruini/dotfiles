@@ -101,7 +101,7 @@ Vagrant.configure("2") do |config|
     apt-get upgrade -y
     apt-get install -y build-essential flex bison gperf make cmake automake pkg-config
     apt-get install -y binutils gawk patch bzip2 gettext unzip sharutils curl bc
-    apt-get install -y git-core git-lfs tig repo subversion
+    apt-get install -y git-core git-lfs tig repo subversion shellcheck
     apt-get install -y libncurses5-dev zlib1g-dev libpcre3-dev libc6-dev
     apt-get install -y liblzma-dev swig quilt
     apt-get install -y python-pip python-yaml
