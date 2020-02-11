@@ -51,19 +51,19 @@ bindkey -e          # Emacs key bindings
 # Disable core dumps
 limit coredumpsize 0
 
-# Clever dot expansion
-#rationalise-dot() {
-#  if [[ $LBUFFER = *.. ]]; then
-#    LBUFFER+=/..
-#  else
-#    LBUFFER+=.
-#  fi
-#}
-#zle -N rationalise-dot
-#bindkey . rationalise-dot
+# # Clever dot expansion
+# rationalise-dot() {
+#   if [[ $LBUFFER = *.. ]]; then
+#     LBUFFER+=/..
+#   else
+#     LBUFFER+=.
+#   fi
+# }
+# zle -N rationalise-dot
+# bindkey . rationalise-dot
 
 # add brew
-# export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH=$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH
 export HOMEBREW_NO_ANALYTICS=1
 
 # nvm
@@ -90,20 +90,27 @@ antigen bundle history
 antigen bundle history-substring-search
 antigen bundle osx
 antigen bundle vagrant
+antigen bundle vagrant-prompt
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle brew
 antigen bundle brew-cask
+antigen bundle emacs
 # C-x a to expand the alias under the cursor
 # antigen bundle globalias
 antigen bundle git
 antigen bundle git-extras
+antigen bundle git-prompt
+antigen bundle man
 antigen bundle python
 antigen bundle pip
 antigen bundle pyenv
-antigen bundle virtualenv
+antigen bundle pipenv
+antigen bundle rbenv
+antigen bundle repo
 antigen bundle rsync
-antigen bundle lein
+antigen bundle virtualenv
+# antigen bundle lein
 antigen bundle golang
 antigen bundle sudo
 antigen bundle nvm
@@ -129,9 +136,6 @@ antigen theme xueruini/oh-my-zsh-seeker-theme seeker
 
 antigen apply
 
-# aws
-# source $(brew --prefix)/share/zsh/site-functions/_aws
-
 # pip should only run if there is a virtualenv currently activated
 # export PIP_REQUIRE_VIRTUALENV=true
 
@@ -144,10 +148,10 @@ antigen apply
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-## GOPATH
-#export GOPATH=$HOME/Documents/go
-#export GOROOT=$(go env GOROOT)
-#export PATH=$GOPATH/bin:$PATH
-# gvm
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-gvm use go1.12.4
+# # GOPATH
+# export GOPATH=$HOME/Documents/go
+# export GOROOT=$(go env GOROOT)
+# export PATH=$GOPATH/bin:$PATH
+# # gvm
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# gvm use go1.13.5
