@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ## ZSH-specific shell environment flags only relvant to interactive shells
 # Variable behaviors
 setopt NO_ALL_EXPORT		# Don't export all variables to environment
@@ -70,13 +77,6 @@ export HOMEBREW_NO_ANALYTICS=1
 export NVM_DIR=$HOME/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-# powerline
-# POWERLEVEL9K_MODE='compatible'
-# POWERLEVEL9K_MODE='awesome-patched'
-# POWERLEVEL9K_MODE='awesome-fontconfig'
-# POWERLEVEL9K_MODE='flat'
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
 # antigen via brew
 source $(brew --prefix)/share/antigen/antigen.zsh
 
@@ -92,10 +92,9 @@ antigen bundle osx
 antigen bundle vagrant
 antigen bundle vagrant-prompt
 antigen bundle docker
-antigen bundle docker-compose
+# antigen bundle docker-compose
 antigen bundle brew
 antigen bundle brew-cask
-antigen bundle emacs
 # C-x a to expand the alias under the cursor
 # antigen bundle globalias
 antigen bundle git
@@ -105,13 +104,13 @@ antigen bundle man
 antigen bundle python
 antigen bundle pip
 antigen bundle pyenv
-antigen bundle pipenv
+# antigen bundle pipenv
 antigen bundle rbenv
 antigen bundle repo
 antigen bundle rsync
 antigen bundle virtualenv
 # antigen bundle lein
-antigen bundle golang
+# antigen bundle golang
 antigen bundle sudo
 antigen bundle nvm
 antigen bundle npm
@@ -131,8 +130,9 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 # antigen theme jreese
 # antigen theme pygmalion
-antigen theme xueruini/oh-my-zsh-seeker-theme seeker
-# antigen theme bhilburn/powerlevel9k powerlevel9k
+# antigen theme xueruini/oh-my-zsh-seeker-theme seeker
+# antigen theme gnzh
+antigen theme romkatv/powerlevel10k
 
 antigen apply
 
@@ -155,3 +155,6 @@ antigen apply
 # # gvm
 # [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 # gvm use go1.13.5
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
