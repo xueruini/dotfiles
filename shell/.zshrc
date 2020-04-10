@@ -105,10 +105,10 @@ antigen bundle python
 antigen bundle pip
 antigen bundle pyenv
 # antigen bundle pipenv
-antigen bundle rbenv
-antigen bundle repo
-antigen bundle rsync
-antigen bundle virtualenv
+# antigen bundle rbenv
+# antigen bundle repo
+# antigen bundle rsync
+# antigen bundle virtualenv
 # antigen bundle lein
 # antigen bundle golang
 antigen bundle sudo
@@ -119,7 +119,7 @@ antigen bundle httpie
 antigen bundle tmux
 antigen bundle tig
 antigen bundle fasd
-antigen bundle zsh_reload
+# antigen bundle zsh_reload
 # fzf is better
 # antigen bundle zsh-navigation-tools
 
@@ -147,6 +147,10 @@ antigen apply
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# I love the original ctrl-t
+bindkey '^X^T' fzf-file-widget
+bindkey '^T' transpose-chars
+
 
 # # GOPATH
 # export GOPATH=$HOME/Documents/go
