@@ -70,7 +70,7 @@ limit coredumpsize 0
 # bindkey . rationalise-dot
 
 # add brew
-export PATH=$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_NO_ANALYTICS=1
 
 # nvm

@@ -4,7 +4,7 @@ export PS1='\[\033[34m\]\u\[\033[33m@\[\033[36m\]\h:\[\033[35m\]\w\[\033[32m\]$(
 alias rm="rm -i"
 
 # brew
-# export PATH=/usr/local/sbin:$PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_NO_ANALYTICS=1
 
 # nvm
