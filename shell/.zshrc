@@ -73,10 +73,6 @@ limit coredumpsize 0
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_NO_ANALYTICS=1
 
-# nvm
-export NVM_DIR=$HOME/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
 # antigen via brew
 source $(brew --prefix)/share/antigen/antigen.zsh
 
@@ -112,7 +108,7 @@ antigen bundle pyenv
 # antigen bundle lein
 # antigen bundle golang
 antigen bundle sudo
-antigen bundle nvm
+# antigen bundle nvm
 antigen bundle npm
 antigen bundle node
 antigen bundle httpie
@@ -159,6 +155,10 @@ bindkey '^T' transpose-chars
 # # gvm
 # [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 # gvm use go1.13.5
+
+# nvm
+export NVM_DIR=$HOME/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
