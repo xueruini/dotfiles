@@ -70,7 +70,7 @@ limit coredumpsize 0
 # bindkey . rationalise-dot
 
 # add brew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(brew shellenv)"
 export HOMEBREW_NO_ANALYTICS=1
 
 # antigen via brew
@@ -84,7 +84,7 @@ antigen bundle colorize
 antigen bundle command-not-found
 antigen bundle history
 antigen bundle history-substring-search
-antigen bundle osx
+antigen bundle macos
 antigen bundle vagrant
 antigen bundle vagrant-prompt
 antigen bundle docker
@@ -99,7 +99,6 @@ antigen bundle git-prompt
 antigen bundle man
 antigen bundle python
 antigen bundle pip
-antigen bundle pyenv
 # antigen bundle pipenv
 # antigen bundle rbenv
 # antigen bundle repo
