@@ -110,7 +110,7 @@ antigen bundle sudo
 # antigen bundle nvm
 antigen bundle npm
 antigen bundle node
-antigen bundle httpie
+# antigen bundle httpie
 antigen bundle tmux
 antigen bundle tig
 antigen bundle fasd
@@ -134,11 +134,10 @@ antigen apply
 # pip should only run if there is a virtualenv currently activated
 # export PIP_REQUIRE_VIRTUALENV=true
 
-## bundle pyenv works
-# eval "$(pyenv init -)"
-# if which pyenv-virtualenv-init > /dev/null; then
-#   eval "$(pyenv virtualenv-init -)"
-# fi
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
