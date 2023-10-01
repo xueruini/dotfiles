@@ -72,6 +72,7 @@ limit coredumpsize 0
 # add brew
 eval "$(brew shellenv)"
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # antigen via brew
 source $(brew --prefix)/share/antigen/antigen.zsh
@@ -85,43 +86,41 @@ antigen bundle command-not-found
 antigen bundle history
 antigen bundle history-substring-search
 antigen bundle macos
-antigen bundle vagrant
-antigen bundle vagrant-prompt
-antigen bundle docker
-# antigen bundle docker-compose
+# antigen bundle vagrant
+# antigen bundle vagrant-prompt
+# antigen bundle docker
+antigen bundle docker-compose
 antigen bundle brew
 antigen bundle brew-cask
 # C-x a to expand the alias under the cursor
 # antigen bundle globalias
+antigen bundle fzf
 antigen bundle git
 antigen bundle git-extras
 antigen bundle git-prompt
 antigen bundle man
 antigen bundle python
-antigen bundle pip
+# antigen bundle pip
 # antigen bundle pipenv
-# antigen bundle rbenv
 # antigen bundle repo
+# antigen bundle rust
 # antigen bundle rsync
 # antigen bundle virtualenv
 # antigen bundle lein
 # antigen bundle golang
 antigen bundle sudo
 # antigen bundle nvm
-antigen bundle npm
-antigen bundle node
+# antigen bundle npm
+# antigen bundle node
 # antigen bundle httpie
-antigen bundle tmux
+# antigen bundle tmux
 antigen bundle tig
-antigen bundle fasd
+antigen bundle zoxide
 # antigen bundle zsh_reload
-# fzf is better
-# antigen bundle zsh-navigation-tools
 
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
-# antigen bundle zsh-users/fizsh
 
 # antigen theme jreese
 # antigen theme pygmalion
@@ -134,29 +133,16 @@ antigen apply
 # pip should only run if there is a virtualenv currently activated
 # export PIP_REQUIRE_VIRTUALENV=true
 
-eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then
-  eval "$(pyenv virtualenv-init -)"
-fi
+## pyenv
+# eval "$(pyenv init -)"
+# if which pyenv-virtualenv-init > /dev/null; then
+#   eval "$(pyenv virtualenv-init -)"
+# fi
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# I love the original ctrl-t
+## fzf
+## I love the original ctrl-t
 bindkey '^X^T' fzf-file-widget
 bindkey '^T' transpose-chars
-
-
-# # GOPATH
-# export GOPATH=$HOME/Documents/go
-# export GOROOT=$(go env GOROOT)
-# export PATH=$GOPATH/bin:$PATH
-# # gvm
-# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-# gvm use go1.13.5
-
-# nvm
-export NVM_DIR=$HOME/.nvm
-source $(brew --prefix nvm)/nvm.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
