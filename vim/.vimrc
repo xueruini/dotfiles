@@ -15,5 +15,5 @@ set tw=78
 set linespace=3
 set guifont=Fira\ Mono:h14
 set paste
-colorscheme desert
+" colorscheme desert
 set rtp+=/usr/local/opt/fzf
