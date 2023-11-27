@@ -73,6 +73,7 @@ limit coredumpsize 0
 eval "$(brew shellenv)"
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 # antigen via brew
 source $(brew --prefix)/share/antigen/antigen.zsh
@@ -88,7 +89,7 @@ antigen bundle history-substring-search
 antigen bundle macos
 # antigen bundle vagrant
 # antigen bundle vagrant-prompt
-# antigen bundle docker
+antigen bundle docker
 antigen bundle docker-compose
 antigen bundle brew
 antigen bundle brew-cask
@@ -96,16 +97,20 @@ antigen bundle brew-cask
 # antigen bundle globalias
 antigen bundle fzf
 antigen bundle git
-antigen bundle git-extras
-antigen bundle git-prompt
+# antigen bundle git-extras
+## shadowed by starship
+# antigen bundle git-prompt
 antigen bundle man
-antigen bundle python
-# antigen bundle pip
-# antigen bundle pipenv
-# antigen bundle repo
-# antigen bundle rust
-# antigen bundle rsync
+# antigen bundle python
+# antigen bundle pyenv
 # antigen bundle virtualenv
+# antigen bundle poetry
+# antigen bundle poetry-env
+# antigen bundle pipenv
+# antigen bundle pip
+# antigen bundle repo
+antigen bundle rust
+# antigen bundle rsync
 # antigen bundle lein
 # antigen bundle golang
 antigen bundle sudo
@@ -116,33 +121,47 @@ antigen bundle sudo
 # antigen bundle tmux
 antigen bundle tig
 antigen bundle zoxide
+antigen bundle starship
 # antigen bundle zsh_reload
 
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 
+## starship shadow theme
 # antigen theme jreese
 # antigen theme pygmalion
 # antigen theme xueruini/oh-my-zsh-seeker-theme seeker
 # antigen theme gnzh
-antigen theme romkatv/powerlevel10k
+# antigen theme romkatv/powerlevel10k
 
 antigen apply
 
 # pip should only run if there is a virtualenv currently activated
-# export PIP_REQUIRE_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=true
 
-## pyenv
-# eval "$(pyenv init -)"
-# if which pyenv-virtualenv-init > /dev/null; then
-#   eval "$(pyenv virtualenv-init -)"
-# fi
+# pyenv
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 ## fzf
 ## I love the original ctrl-t
 bindkey '^X^T' fzf-file-widget
 bindkey '^T' transpose-chars
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source $HOME/.config/broot/launcher/bash/br
+
+
+# pipx
+export PATH="$PATH:$HOME/.local/bin"
+autoload -U bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete pipx)"
+
+export VCPKG_ROOT="$HOME/vcpkg"
