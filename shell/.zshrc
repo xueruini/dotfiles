@@ -155,13 +155,14 @@ bindkey '^T' transpose-chars
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source $HOME/.config/broot/launcher/bash/br
-
-
 # pipx
 export PATH="$PATH:$HOME/.local/bin"
 autoload -U bashcompinit
 bashcompinit
 eval "$(register-python-argcomplete pipx)"
 
+# vcpkg
 export VCPKG_ROOT="$HOME/vcpkg"
+
+# let git always show engligh
+alias git='LANG=en_US.UTF-8 git'
