@@ -21,17 +21,41 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Cascadia Code" :size 16 :weight 'normal)
-      doom-variable-pitch-font (font-spec :family "Helvetica")
-      doom-big-font (font-spec :family "Helvetica")
-      doom-unicode-font (font-spec :family "Apple Color Emoji"))
+(cond
+ ((eq system-type 'windows-nt)
+  (progn
+    (setq main-font "BlexMono Nerd Font Mono"
+          main-size 32
+          var-font "Arial"
+          big-font "Arial"
+          emoji-font "Segoe Emoji"
+          cjk-font "新宋体")
+	(set-next-selection-coding-system 'utf-16-le)
+	(set-selection-coding-system 'utf-16-le)
+	(set-clipboard-coding-system 'utf-16-le)))
+ ((eq system-type 'darwin)
+  (progn
+    (setq main-font "BlexMono Nerd Font Mono"
+          main-size 16
+          var-font "Helvetica"
+          big-font "Helvetica"
+          emoji-font "Apple Color Emoji"
+          cjk-font "Songti SC")))
+ ((eq system-type 'gnu/linux)
+  (progn
+    (message "Linux"))))
+
+(setq doom-font (font-spec :family main-font :size main-size :weight 'normal)
+      doom-variable-pitch-font (font-spec :family var-font)
+      doom-big-font (font-spec :family big-font)
+      doom-unicode-font (font-spec :family emoji-font))
 ;; setup chinese font separately
 (defun setup-cjk-fonts ()
   (interactive)
   (if (display-graphic-p)
       (dolist (charset '(kana han cjk-misc bopomofo))
         (set-fontset-font (frame-parameter nil 'font)
-                          charset (font-spec :family "Songti SC")))))
+                          charset (font-spec :family cjk-font)))))
 (add-hook 'after-setting-font-hook #'setup-cjk-fonts)
 
 ;;
@@ -43,7 +67,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
+(setq doom-theme 'tango)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.

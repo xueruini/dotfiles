@@ -150,7 +150,7 @@ fi
 ## I love the original ctrl-t
 bindkey '^X^T' fzf-file-widget
 bindkey '^T' transpose-chars
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# source <(fzf --zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
