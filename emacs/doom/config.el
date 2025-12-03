@@ -24,7 +24,7 @@
 (cond
  ((eq system-type 'windows-nt)
   (progn
-    (setq main-font "BlexMono Nerd Font Mono"
+    (setq main-font "CaskaydiaCove NFM" ;;"BlexMono Nerd Font Mono"
           main-size 32
           var-font "Arial"
           big-font "Arial"
@@ -67,8 +67,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;;(setq doom-theme 'doom-one)
-(setq doom-theme 'doom-solarized-dark)
+(setq doom-theme 'doom-one)
+;;(setq doom-theme 'doom-solarized-dark)
 ;;(setq doom-theme 'tango)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
