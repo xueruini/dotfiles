@@ -28,7 +28,7 @@
           main-size 32
           var-font "Arial"
           big-font "Arial"
-          symbol-font "Segoe Emoji"
+          symbol-font "Segoe UI Symbol"
           cjk-font "新宋体")
     (set-next-selection-coding-system 'utf-16-le)
     (set-selection-coding-system 'utf-16-le)
@@ -39,7 +39,7 @@
           main-size 16
           var-font "Helvetica"
           big-font "Helvetica"
-          symbol-font "Apple Color Emoji"
+          symbol-font "Apple Symbols"
           cjk-font "Songti SC")))
  ((eq system-type 'gnu/linux)
   (progn
