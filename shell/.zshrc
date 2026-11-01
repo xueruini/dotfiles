@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ## ZSH-specific shell environment flags only relvant to interactive shells
 # Variable behaviors
 setopt NO_ALL_EXPORT		# Don't export all variables to environment
@@ -75,76 +68,53 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 
-# antigen via brew
-source $(brew --prefix)/share/antigen/antigen.zsh
+# zinit via brew
+source $(brew --prefix)/opt/zinit/zinit.zsh
 
-antigen use oh-my-zsh
+# oh-my-zsh cache dir (used by OMZ libs)
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zinit-omz"
+[[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
 
-antigen bundle common-aliases
-antigen bundle colored-man-pages
-antigen bundle colorize
-antigen bundle command-not-found
-antigen bundle history
-antigen bundle history-substring-search
-antigen bundle macos
-# antigen bundle vagrant
-# antigen bundle vagrant-prompt
-antigen bundle docker
-antigen bundle docker-compose
-antigen bundle brew
-antigen bundle brew-cask
-# C-x a to expand the alias under the cursor
-# antigen bundle globalias
-antigen bundle fzf
-antigen bundle git
-# antigen bundle git-extras
-## shadowed by starship
-# antigen bundle git-prompt
-antigen bundle man
-# antigen bundle python
-# antigen bundle pyenv
-# antigen bundle virtualenv
-# antigen bundle poetry
-# antigen bundle poetry-env
-# antigen bundle pipenv
-# antigen bundle pip
-# antigen bundle repo
-antigen bundle rust
-# antigen bundle rsync
-# antigen bundle lein
-# antigen bundle golang
-antigen bundle sudo
-# antigen bundle nvm
-# antigen bundle npm
-# antigen bundle node
-# antigen bundle httpie
-# antigen bundle tmux
-antigen bundle tig
-antigen bundle zoxide
-antigen bundle starship
-# antigen bundle zsh_reload
+# oh-my-zsh libs (replaces `antigen use oh-my-zsh`)
+for _omz_lib in functions clipboard completion directories git grep history \
+                key-bindings misc spectrum termsupport theme-and-appearance; do
+  zinit snippet OMZL::${_omz_lib}.zsh
+done
+unset _omz_lib
 
-antigen bundle zsh-users/zsh-completions src
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
+# needed by the fzf bindkeys below, so load it synchronously
+zinit snippet OMZP::fzf
 
-## starship shadow theme
-# antigen theme jreese
-# antigen theme pygmalion
-# antigen theme xueruini/oh-my-zsh-seeker-theme seeker
-# antigen theme gnzh
-# antigen theme romkatv/powerlevel10k
+# oh-my-zsh plugins (turbo)
+zinit wait lucid for \
+  OMZP::common-aliases \
+  OMZP::colored-man-pages \
+  OMZP::command-not-found \
+  OMZP::brew \
+  OMZP::git \
+  OMZP::sudo \
+  OMZP::tig \
+  OMZP::zoxide
 
-antigen apply
+# fzf-tab
+zstyle ':completion:*' menu no
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 $realpath'
+
+# completions, fzf-tab, highlighting, suggestions (turbo, order matters)
+zinit wait lucid for \
+  blockf \
+    zsh-users/zsh-completions \
+  atinit"zicompinit; zicdreplay" \
+    Aloxaf/fzf-tab \
+  zdharma-continuum/fast-syntax-highlighting \
+  atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+  atload'bindkey "^[[A" history-substring-search-up; bindkey "^[[B" history-substring-search-down' \
+    zsh-users/zsh-history-substring-search
 
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
-
-# pyenv
-eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then
-  eval "$(pyenv virtualenv-init -)"
-fi
 
 ## fzf
 ## I love the original ctrl-t
@@ -152,17 +122,13 @@ bindkey '^X^T' fzf-file-widget
 bindkey '^T' transpose-chars
 # source <(fzf --zsh)
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# pipx
-export PATH="$PATH:$HOME/.local/bin"
-autoload -U bashcompinit
-bashcompinit
-eval "$(register-python-argcomplete pipx)"
-
 # vcpkg
 export VCPKG_ROOT="$HOME/vcpkg"
 
 # let git always show engligh
 alias git='LANG=en_US.UTF-8 git'
+
+source "$HOME/.local/bin/env"
+
+# starship prompt
+eval "$(starship init zsh)"
