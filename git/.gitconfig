@@ -1,11 +1,19 @@
 [user]
 	name = Ruini Xue
 	email = xueruini@gmail.com
-	signingkey = D8332A0B64FCBCBE
 [color]
 	ui = auto
 [color "diff"]
 	whitespace = red reverse
+
+[interactive]
+	# diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	dark = true
+	features = line-numbers decorations
+
 [push]
 	default = simple
 [pull]
@@ -43,6 +51,19 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+[core]
+	quotepath = false
+	preloadindex = true
+	fscache = true
+	untrackedcache = true
+	autocrlf = input
+	# pager = delta
+	whitespace = cr-at-eol
+[credential "helperselector"]
+	selected = manager
+[gc]
+	auto = 256
+[init]
+	defaultBranch = main
+[safe]
+	directory = *
